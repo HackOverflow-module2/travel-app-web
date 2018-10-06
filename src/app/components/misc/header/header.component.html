@@ -3,16 +3,16 @@
     WAYFINDER
   </a>
 
-  <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="menuCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
 
-  <div class="collapse navbar-collapse" [ngbCollapse]="!isNavbarCollapsed"  id="exCollapsingNavbar2">
+  <div class="collapse navbar-collapse" [ngbCollapse]="!isNavbarCollapsed"  id="menuCollapse">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown" ngbDropdown routerLinkActive="active">
-        <a class="nav-link dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>User email</a>
-        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a class="nav-link dropdown-toggle" id="menuDropdown" ngbDropdownToggle>User email</a>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="menuDropdown">
           <a class="dropdown-item" [routerLink]="['/user']">
             My profile
           </a>

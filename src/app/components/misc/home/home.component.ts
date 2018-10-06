@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  images = [1, 2, 3].map(() => `../assets/images/home/home-slide-${Math.floor(Math.random() * 5)}.jpg`);
 
-  constructor() { }
+    constructor() { }
 
   ngOnInit() {
   }
