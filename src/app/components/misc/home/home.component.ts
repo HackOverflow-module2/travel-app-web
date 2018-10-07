@@ -9,6 +9,7 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 })
 export class HomeComponent implements OnInit {
   @ViewChild('originSearch') public  searchElement: ElementRef;
+  @ViewChild('destinationSearch') public  searchElement2: ElementRef;
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
 
@@ -16,10 +17,21 @@ export class HomeComponent implements OnInit {
     this.mapsAPILoader.load()
     .then(() => {
       const autocomplete = new google.maps.places.Autocomplete(this.searchElement.nativeElement, { types: ['(cities)'] });
+      const autocomplete2 = new google.maps.places.Autocomplete(this.searchElement2.nativeElement, { types: ['(cities)'] });
 
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
           const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          const originLat: number = place.geometry.location.lat();
+          console.log(originLat);
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+        });
+      });
+      autocomplete2.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          const place: google.maps.places.PlaceResult = autocomplete2.getPlace();
 
           if (place.geometry === undefined || place.geometry === null) {
             return;
