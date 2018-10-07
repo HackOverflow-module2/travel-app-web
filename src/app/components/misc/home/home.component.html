@@ -1,9 +1,14 @@
-<ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
-  <ng-template ngbSlide *ngFor="let image of images">
-    <img [src]="image" alt="Random slide">
-    <div class="carousel-caption">
-      <h3>No mouse navigation</h3>
-      <p>This carousel hides navigation arrows and indicators.</p>
-    </div>
-  </ng-template>
-</ngb-carousel>
+<div id="hero">
+  <div class="container">
+    <h3>Create your trip</h3>
+    <form class="form-inline">
+        <div class="form-group mb-2">
+          <input type="text" class="form-control" id="origin" placeholder="origin">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" class="form-control" id="destination" placeholder="destination">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 btn-block">Go</button>
+      </form>
+  </div>
+</div>
