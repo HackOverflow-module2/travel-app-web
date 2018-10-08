@@ -1,3 +1,4 @@
+import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
@@ -11,7 +12,8 @@ import { LoginComponent } from './components/misc/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

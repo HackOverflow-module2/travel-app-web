@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   onClickLogin(): void {
     this.sessionService.authenticate(this.user)
-    .subscribe(
-    )
+    .subscribe((user) => {
+      this.router.navigate(['/users', user.id])
+    })
   }
 }

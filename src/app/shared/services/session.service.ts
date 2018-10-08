@@ -1,4 +1,4 @@
-import { environment } from './../../../environments/environment.prod';
+import { environment } from './../../../environments/environment';
 import { User } from './../models/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -19,9 +19,15 @@ export class SessionService {
 
   user: User = new User();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    const userData = localStorage.getItem(SessionService.CURRENT_USER_KEY);
+    if (userData) {
+      this.user = Object.assign(new User(), JSON.parse(userData));
+    }
+  }
 
   authenticate(user: User): Observable<User> {
+    
    return this.http.post<User>(SessionService.SESSIONS_API, user, SessionService.defaultOptions)
     .pipe(
       map((user: User) => {
@@ -37,3 +43,4 @@ export class SessionService {
   }
 
 }
+
