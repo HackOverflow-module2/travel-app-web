@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';;
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/misc/login/login.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './components/misc/header/header.component';
 
 
 @NgModule({
@@ -14,14 +16,18 @@ import { LoginComponent } from './components/misc/login/login.component';
     AppComponent,
     LoginComponent,
     UserDetailComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule 
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
