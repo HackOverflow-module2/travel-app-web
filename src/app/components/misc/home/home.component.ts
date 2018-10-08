@@ -29,15 +29,6 @@ export class HomeComponent implements OnInit {
           }
         });
       });
-      autocomplete2.addListener('place_changed', () => {
-        this.ngZone.run(() => {
-          const place: google.maps.places.PlaceResult = autocomplete2.getPlace();
-
-          if (place.geometry === undefined || place.geometry === null) {
-            return;
-          }
-        });
-      });
     });
   }
 
