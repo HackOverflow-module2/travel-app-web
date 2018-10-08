@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/misc/header/header.component';
 import { HomeComponent } from './components/misc/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { FormsModule } from '@angular/forms';
+import { ListComponent } from './components/pois/list/list.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    MapComponent
+    MapComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
