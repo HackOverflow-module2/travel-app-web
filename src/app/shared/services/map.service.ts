@@ -7,6 +7,10 @@ import { MapsAPILoader } from '@agm/core';
 })
 export class MapService {
 
+  private static readonly LATITUDE_KEY: string = 'latitude';
+  private static readonly LONGITUDE_KEY: string = 'latitude';
+
+
   place: google.maps.places.PlaceResult;
   latitude: Array<number> = [];
   longitude: Array<number> = [];
@@ -28,5 +32,9 @@ export class MapService {
       });
     });
   }
-}
 
+  saveCoordinates(): void {
+    localStorage.setItem(MapService.LATITUDE_KEY, JSON.stringify(this.latitude));
+    localStorage.setItem(MapService.LONGITUDE_KEY, JSON.stringify(this.longitude));
+  }
+}

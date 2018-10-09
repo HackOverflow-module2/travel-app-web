@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   onClickLogin(): void {
     this.sessionService.authenticate(this.user)
     .subscribe((user) => {
-      this.router.navigate(['/profile'])
-    })
+      this.router.navigate(['/profile']);
+    });
   }
 }

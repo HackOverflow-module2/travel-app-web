@@ -4,6 +4,7 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/misc/home/home.component';
@@ -32,6 +33,7 @@ import { LoginComponent } from './components/misc/login/login.component';
       apiKey: 'AIzaSyAEkL-jlLHB19M2VVbD52QgO2VkeMERovI',
       libraries: ['places']
     }),
+    AgmDirectionModule,
     HttpClientModule,
     NgbModule
   ],

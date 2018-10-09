@@ -1,3 +1,6 @@
-<p>
-{{origin}}
-</p>
+
+<agm-map [latitude]="origin[0]" [longitude]="origin[1]">
+  <agm-marker [latitude]="origin[0]" [longitude]="origin[1]"></agm-marker>
+  <agm-direction [origin]="origin" [destination]="destination">
+  </agm-direction>
+</agm-map>

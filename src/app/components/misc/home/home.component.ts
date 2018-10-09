@@ -17,5 +17,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.mapService.autoCompleteCities(this.searchElement);
     this.mapService.autoCompleteCities(this.searchElement2);
+    // this.mapService.saveCoordinates();
   }
 }
