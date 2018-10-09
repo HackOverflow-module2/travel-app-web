@@ -1,3 +1,4 @@
+import { SessionService } from './../../../shared/services/session.service';
 import { map } from 'rxjs/operators';
 import { UserService } from './../../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,13 +14,14 @@ export class UserDetailComponent implements OnInit {
 
   user: User = new User();
   
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.route.data
-      .pipe(
-        map((data => data.user))
-      ).subscribe((user: User) => this.user = user);
+    this.user = this.sessionService.user;
+    const userId = this.user.id;
+    this.userService.detail(userId).subscribe()
   }
+
+ 
 
 }
