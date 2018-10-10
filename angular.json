@@ -13,7 +13,8 @@
           "spec": false
         },
         "@schematics/angular:component": {
-          "spec": false
+          "spec": false,
+          "styleext": "less"
         },
         "@schematics/angular:directive": {
           "spec": false
