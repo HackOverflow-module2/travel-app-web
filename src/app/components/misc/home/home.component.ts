@@ -19,4 +19,6 @@ export class HomeComponent implements OnInit {
     this.mapService.autoCompleteCities(this.searchElement2);
     // this.mapService.saveCoordinates();
   }
+  
+
 }

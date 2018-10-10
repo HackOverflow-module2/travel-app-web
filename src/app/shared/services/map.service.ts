@@ -15,6 +15,7 @@ export class MapService {
   latitude: Array<number> = [];
   longitude: Array<number> = [];
 
+
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
   autoCompleteCities(searchElement: ElementRef) {
     this.mapsAPILoader.load()
@@ -23,8 +24,8 @@ export class MapService {
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
           this.place = autocomplete.getPlace();
-          this.latitude.push(this.place.geometry.location.lat());
-          this.longitude.push(this.place.geometry.location.lng());
+            this.latitude.push(this.place.geometry.location.lat());
+            this.longitude.push(this.place.geometry.location.lng());
           if (this.place.geometry === undefined || this.place.geometry === null) {
             return;
           }
@@ -32,6 +33,7 @@ export class MapService {
       });
     });
   }
+
 
   saveCoordinates(): void {
     localStorage.setItem(MapService.LATITUDE_KEY, JSON.stringify(this.latitude));
