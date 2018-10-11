@@ -20,7 +20,7 @@ export class PoiService extends BaseApiService {
   }
 
   list(): Observable <Array<Poi> | ApiError> {
-    return this.http.get<Array<Poi>>(PoiService.POI_API, BaseApiService.defaultOptions)
+    return this.http.get<Array<Poi>>(`${PoiService.POI_API}/list`, BaseApiService.defaultOptions)
       .pipe(
         map((pois: Array<Poi>) => {
           pois = pois.map(poi => Object.assign(new Poi(), poi));
