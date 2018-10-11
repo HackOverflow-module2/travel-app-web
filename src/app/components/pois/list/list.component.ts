@@ -9,15 +9,16 @@ import { Coordinates } from '../../../shared/models/coordinates.model';
 })
 export class ListComponent implements OnInit {
 
+
   constructor(private mapService: MapService) {   }
   
-  origin: Coordinates = { lat: this.mapService.latitude[0], lng: this.mapService.longitude[0]};
-  destination: Coordinates = { lat: this.mapService.latitude[1], lng: this.mapService.longitude[1]};
-  
+  origin: Coordinates = this.mapService.getOrigin();
+  destination: Coordinates = this.mapService.getDestination();
+
+ 
 
   ngOnInit() {
+
   }
-
-
 
 }
