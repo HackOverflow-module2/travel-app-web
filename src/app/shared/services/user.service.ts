@@ -18,6 +18,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   detail(userId: String): Observable<User> {
-    return this.http.get<User>(`${UserService.USER_API}/${userId}`, UserService.defaultOptions)
+    return this.http.get<User>(`${UserService.USER_API}/${userId}`, UserService.defaultOptions);
   }
 }
