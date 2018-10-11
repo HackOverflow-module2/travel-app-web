@@ -1,8 +1,15 @@
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-direction [origin]="origin" [destination]="destination">
   </agm-direction>
+<div *ngFor="let poi of pois">
+  <agm-marker 
+
+  [latitude]="poi.location.coordinates[0]" [longitude]="poi.location.coordinates[1]"
+
+  ></agm-marker>
+</div>
 </agm-map>
 
 <p *ngFor="let poi of pois">
-  {{poi.name}}
+  {{poi.location.coordinates[0]}}
 </p>
