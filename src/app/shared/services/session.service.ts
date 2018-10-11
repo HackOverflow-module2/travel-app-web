@@ -27,14 +27,13 @@ export class SessionService {
   }
 
   authenticate(user: User): Observable<User> {
-    
    return this.http.post<User>(SessionService.SESSIONS_API, user, SessionService.defaultOptions)
     .pipe(
       map((user: User) => {
         this.doAuthenticate(user);
         return user;
       })
-    )
+    );
   }
 
   private doAuthenticate(user: User): void {

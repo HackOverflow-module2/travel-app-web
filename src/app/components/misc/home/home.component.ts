@@ -12,10 +12,13 @@ export class HomeComponent implements OnInit {
   @ViewChild('originSearch') public  searchElement: ElementRef;
   @ViewChild('destinationSearch') public  searchElement2: ElementRef;
 
+
+
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mapService: MapService) { }
 
   ngOnInit() {
-    this.mapService.autoCompleteCities(this.searchElement);
-    this.mapService.autoCompleteCities(this.searchElement2);
+    this.mapService.autoCompleteCityOrigin(this.searchElement);
+    this.mapService.autoCompleteCityDestination(this.searchElement2);
   }
+  
 }
