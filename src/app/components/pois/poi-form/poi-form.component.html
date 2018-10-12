@@ -57,19 +57,19 @@
         </div>
       </div>
 
-      <!-- <div class="input-group mb-3">
+      <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-file-o"></i></span>
         </div>
         <div class="custom-file">
-          <input type="file" class="custom-file-input" #poiFiles (change)="onChangeImageFile(poiFiles)" multiple>
-          <label class="custom-file-label">{{ poi.imageFiles[0]?.name || 'Choose files' }}</label>
+          <input type="file" name="gallery" class="custom-file-input" #poiFiles multiple (change)="onChangeGalleryFile(poiFiles)">
+          <label class="custom-file-label">Choose files</label>
         </div>
         <div class="invalid-feedback" *ngIf="poiFiles.errors">
           Please choose a file.
         </div>
       </div>
-
+<!-- 
       <div class="row mt-3 mb-3">
         <div class="col-3" *ngFor="let previewImage of previewImages">
           <img class="card-img-top img-thumbnail" [src]="previewImage" (error)="onImgPreviewError(image)" #image>
