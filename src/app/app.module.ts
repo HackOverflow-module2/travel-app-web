@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/misc/login/login.component';
 import { PoiFormComponent } from './components/pois/poi-form/poi-form.component';
 import { PoiCreateComponent } from './components/pois/poi-create/poi-create.component';
+import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PoiCreateComponent } from './components/pois/poi-create/poi-create.comp
     LoginComponent,
     UserDetailComponent,
     PoiFormComponent,
-    PoiCreateComponent
+    PoiCreateComponent,
+    PoiDetailComponent
   ],
   imports: [
     BrowserModule,

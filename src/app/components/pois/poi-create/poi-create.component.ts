@@ -22,7 +22,7 @@ export class PoiCreateComponent implements OnInit {
     this.poiService.create(poi)
     .subscribe((poi: Poi) => {
       this.poiFormComponent.reset();
-      this.router.navigate(['/route']);
+      this.router.navigate(['/pois', poi.id]);
     })
 
   }
