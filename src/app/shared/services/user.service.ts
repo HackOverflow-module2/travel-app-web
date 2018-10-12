@@ -1,3 +1,4 @@
+import { map, catchError } from 'rxjs/operators';
 import { ApiError } from './../models/api-error.model';
 import { BaseApiService } from './base-api.service';
 import { environment } from './../../../environments/environment';
@@ -17,6 +18,13 @@ export class UserService extends BaseApiService{
     super();
   }
 
+  create(user: User): Observable<User | ApiError> {
+    return this.http.post<User>(UserService.USER_API, user, BaseApiService.defaultOptions)
+      .pipe(
+        map((user: User) => Object.assign(new User(), user)),
+        catchError(this.handleError));
+  }
+  
   detail(userId: String): Observable<User | ApiError> {
     return this.http.get<User>(`${UserService.USER_API}/${userId}`, BaseApiService.defaultOptions);
   }
