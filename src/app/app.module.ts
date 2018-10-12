@@ -30,7 +30,7 @@ import { UserCreateComponent } from './components/users/user-create/user-create.
     PoiFormComponent,
     PoiCreateComponent,
     PoiDetailComponent,
-    UserCreateComponent
+    UserCreateComponent,
   ],
   imports: [
     BrowserModule,

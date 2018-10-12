@@ -22,7 +22,8 @@ export class UserService extends BaseApiService{
     return this.http.post<User>(UserService.USER_API, user, BaseApiService.defaultOptions)
       .pipe(
         map((user: User) => Object.assign(new User(), user)),
-        catchError(this.handleError));
+        catchError(this.handleError)
+      )
   }
   
   detail(userId: String): Observable<User | ApiError> {

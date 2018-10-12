@@ -1,9 +1,7 @@
-import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
-import { User } from './../../../shared/models/user.model';
-import { PoiCreateComponent } from './../../pois/poi-create/poi-create.component';
 import { UserService } from './../../../shared/services/user.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from './../../../shared/models/user.model';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-create',
@@ -12,17 +10,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class UserCreateComponent implements OnInit {
 
-  user: User = new User();
+  user: User = new User()
 
-  constructor(private UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  // onSubmitCreateUser():void {
-  //   this.UserService.create(this.user).subscribe(()=> {
-  //     this.router.navigate(['/']);
-  //   }); 
-  // }
+  onSubmitCreateUser(): void {
+    this.userService.create(this.user).subscribe(()=> {
+      this.router.navigate(['/'])
+    })
+  }
 
 }
