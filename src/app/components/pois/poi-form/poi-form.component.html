@@ -31,9 +31,10 @@
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-tag"></i></span>
         </div>
-        <select *ngFor="let poiType of poiTypes">
+        <input type="text" name="poiType" #poiType="ngModel" [(ngModel)]="poi.poiType">
+        <!-- <select *ngFor="let poiType of poiTypes">
           <option value="poiType">{{poiType}}}</option>
-        </select>
+        </select> -->
       </div>
       
       <div class="input-group mb-3">
@@ -46,7 +47,7 @@
         </div>
       </div>
       
-      <div class="input-group mb-3" *ngFor="let tag of post.tags">
+      <div class="input-group mb-3" *ngFor="let tag of poi.tags">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-gear"></i></span>
         </div>
@@ -56,15 +57,15 @@
         </div>
       </div>
 
-      <div class="input-group mb-3">
+      <!-- <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-file-o"></i></span>
         </div>
         <div class="custom-file">
-          <input type="file" class="custom-file-input" #postFiles (change)="onChangeImageFile(postFiles)" multiple>
-          <label class="custom-file-label">{{ post.imageFiles[0]?.name || 'Choose files' }}</label>
+          <input type="file" class="custom-file-input" #poiFiles (change)="onChangeImageFile(poiFiles)" multiple>
+          <label class="custom-file-label">{{ poi.imageFiles[0]?.name || 'Choose files' }}</label>
         </div>
-        <div class="invalid-feedback" *ngIf="postFiles.errors">
+        <div class="invalid-feedback" *ngIf="poiFiles.errors">
           Please choose a file.
         </div>
       </div>
@@ -73,10 +74,10 @@
         <div class="col-3" *ngFor="let previewImage of previewImages">
           <img class="card-img-top img-thumbnail" [src]="previewImage" (error)="onImgPreviewError(image)" #image>
         </div>
-      </div>
+      </div> -->
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="!postForm.valid">Share my life</button>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!poiForm.valid">Create</button>
       </div>
     </form>
   </div>
