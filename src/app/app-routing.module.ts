@@ -1,3 +1,4 @@
+import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.component';
 import { PoiCreateComponent } from './components/pois/poi-create/poi-create.component';
 import { LoginComponent } from './components/misc/login/login.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'route', component: ListComponent },
   { path: 'profile', component: UserDetailComponent  },
   { path: 'login', component: LoginComponent },
-  { path: 'pois', component: PoiCreateComponent }
+  { path: 'pois', component: PoiCreateComponent },
+  { path: 'pois/:id', component: PoiDetailComponent }
 
 ];
 
