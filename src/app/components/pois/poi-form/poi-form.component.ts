@@ -18,14 +18,23 @@ export class PoiFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmitPoiForm() {
+  onSubmitPoiForm():void {
     if(this.poiForm.valid) {
       this.poiSubmit.emit(this.poi);
     }
   }
   
-  reset() {
+  reset(): void {
     this.poi = new Poi();
     this.poiForm.reset();
+  }
+
+  onChangeGalleryFile(image: HTMLInputElement): void {
+    if (image.files) {
+      
+      for (let i = 0; i < image.files.length; i++) {
+        this.poi.gallery.push(image.files[i]);
+      }
+    }
   }
 }
