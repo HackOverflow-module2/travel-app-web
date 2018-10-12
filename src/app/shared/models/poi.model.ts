@@ -5,11 +5,11 @@ export class Poi {
     type: string,
     coordinates: number
   };
-  poiTypes: [string];
+  poiTypes?: [string];
   name: string;
   description: string;
-  gallery: [string];
-  tags: [string];
+  gallery?: [string];
+  tags?: [string];
   rating: number;
   user: User = new User();
   createdAt?: Date;

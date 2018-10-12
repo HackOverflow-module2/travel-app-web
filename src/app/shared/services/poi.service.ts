@@ -30,4 +30,16 @@ export class PoiService extends BaseApiService {
         catchError(this.handleError)
       );
   }
+
+  create(poi): Observable <Poi | ApiError> {
+    return this.http.post<Poi>(PoiService.POI_API, poi, BaseApiService.defaultOptions)
+     .pipe(
+      map(poi => {
+        poi =  Object.assign(new Poi(), poi);
+        this.pois.push(poi);
+        return poi;
+      }),
+      catchError(this.handleError)
+    );
+  }
 }

@@ -1,3 +1,4 @@
+import { PoiCreateComponent } from './components/pois/poi-create/poi-create.component';
 import { LoginComponent } from './components/misc/login/login.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'maps', component: MapComponent },
   { path: 'route', component: ListComponent },
   { path: 'profile', component: UserDetailComponent  },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'pois', component: PoiCreateComponent }
+
 ];
 
 @NgModule({

@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { ListComponent } from './components/pois/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/misc/login/login.component';
+import { PoiFormComponent } from './components/pois/poi-form/poi-form.component';
+import { PoiCreateComponent } from './components/pois/poi-create/poi-create.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { LoginComponent } from './components/misc/login/login.component';
     MapComponent,
     ListComponent,
     LoginComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    PoiFormComponent,
+    PoiCreateComponent
   ],
   imports: [
     BrowserModule,
