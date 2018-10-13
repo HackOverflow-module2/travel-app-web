@@ -31,8 +31,19 @@ export class PoiService extends BaseApiService {
       );
   }
 
+  get(poiId): Observable <Poi | ApiError> {
+    return this.http.get<Poi>(`${PoiService.POI_API}/${poiId}`, BaseApiService.defaultOptions)
+    .pipe(
+      map(poi => {
+        poi =  Object.assign(new Poi(), poi);
+        return poi;
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   create(poi): Observable <Poi | ApiError> {
-    return this.http.post<Poi>(PoiService.POI_API, poi, BaseApiService.defaultOptions)
+    return this.http.post<Poi>(PoiService.POI_API, poi.asFormData(), {withCredentials: true})
      .pipe(
       map(poi => {
         poi =  Object.assign(new Poi(), poi);

@@ -1,0 +1,40 @@
+<div class="row mt-5">
+  <form class="col-4 mx-auto" #signUpForm="ngForm" (ngSubmit)="onSubmitCreateUser()" >
+      <h2>
+        Sign up
+    </h2>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+      </div>
+      <input type="text" class="form-control" name="firstName" placeholder="Name" [(ngModel)]="user.firstName">
+    </div>
+
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+      </div>
+      <input type="text" class="form-control" name="surname" placeholder="Last name" [(ngModel)]="user.surname">
+    </div>
+
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+      </div>
+      <input type="email" class="form-control" name="email" placeholder="user@exaple.org" [(ngModel)]="user.email">
+    </div>
+
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fas fa-lock"></i> </span>
+      </div>
+      <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="user.password">
+    </div>
+
+    <div class="">
+      <button class="btn btn-primary mb-2 btn-block" type="submit" >Sign in</button>
+      <hr>
+    </div>
+
+  </form>
+</div>

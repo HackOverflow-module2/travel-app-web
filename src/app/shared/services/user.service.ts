@@ -1,3 +1,6 @@
+import { map, catchError } from 'rxjs/operators';
+import { ApiError } from './../models/api-error.model';
+import { BaseApiService } from './base-api.service';
 import { environment } from './../../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from './../models/user.model';
@@ -7,17 +10,23 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService extends BaseApiService{
 
-  private static readonly USER_API = `${environment.baseApi}/users`;
-  private static readonly defaultOptions = {
-    headers: new HttpHeaders().set('Content-Type', 'application/json'),
-    withCredentials: true
-  };
+  private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    super();
+  }
 
-  detail(userId: String): Observable<User> {
-    return this.http.get<User>(`${UserService.USER_API}/${userId}`, UserService.defaultOptions);
+  create(user: User): Observable<User | ApiError> {
+    return this.http.post<User>(UserService.USER_API, user, BaseApiService.defaultOptions)
+      .pipe(
+        map((user: User) => Object.assign(new User(), user)),
+        catchError(this.handleError)
+      )
+  }
+  
+  detail(userId: String): Observable<User | ApiError> {
+    return this.http.get<User>(`${UserService.USER_API}/${userId}`, BaseApiService.defaultOptions);
   }
 }

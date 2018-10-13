@@ -1,19 +1,42 @@
 import { User } from './user.model';
 
 export class Poi {
-  location: {
-    type: string,
-    coordinates: number
-  };
-  poiTypes?: [string];
+  location?: Array<number> = [];
+  poiType?: string;
   name: string;
-  description: string;
-  gallery?: [string];
-  tags?: [string];
-  rating: number;
+  description?: string;
+  gallery?: Array<File> = [];
+  tags?: Array<string> = [];
+  rating?: number;
   user: User = new User();
   createdAt?: Date;
   updatedAt?: Date;
   id?: string;
+
+  public asFormData(): FormData {
+    const data = new FormData();
+
+    for (const location of this.location) {
+      data.append('location', location.toString());
+    }
+    data.append('poiType', this.poiType);
+    data.append('name', this.name);
+    data.append('description', this.description);
+
+    for (const tag of this.tags) {
+      data.append('tag', tag);
+    }
+    
+    // data.append('rating', this.rating.toString());
+
+    for (const file of this.gallery) {
+      data.append('file', file);
+    }
+
+    return data;
+  }
 }
+
+
+
 
