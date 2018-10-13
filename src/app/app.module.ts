@@ -17,6 +17,8 @@ import { PoiFormComponent } from './components/pois/poi-form/poi-form.component'
 import { PoiCreateComponent } from './components/pois/poi-create/poi-create.component';
 import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
+import { ReviewCreateComponent } from './components/reviews/review-create/review-create.component';
+import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { UserCreateComponent } from './components/users/user-create/user-create.
     PoiCreateComponent,
     PoiDetailComponent,
     UserCreateComponent,
+    ReviewCreateComponent,
+    ReviewListComponent,
   ],
   imports: [
     BrowserModule,
