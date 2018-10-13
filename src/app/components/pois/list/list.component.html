@@ -1,9 +1,22 @@
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-direction [origin]="origin" [destination]="destination">
   </agm-direction>
-<div *ngFor="let poi of pois">
+<div *ngFor="let poi of pois | poisFilter:searchPattern">
   <agm-marker *ngIf="poi.location.length === 2"
     [latitude]="poi.location[0]" [longitude]="poi.location[1]"
   ></agm-marker>
 </div>
 </agm-map>
+
+<!-- <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" [(ngModel)]="searchPattern">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+</div> -->
+
+ <input type="text" name="searchPattern" [(ngModel)]="searchPattern" placeholder="search">

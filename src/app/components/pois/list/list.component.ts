@@ -14,6 +14,7 @@ export class ListComponent implements OnInit {
   origin: Coordinates = this.mapService.getOrigin();
   destination: Coordinates = this.mapService.getDestination();
   pois: Array<Poi> = [];
+  searchPattern: string;
 
   constructor(private mapService: MapService, private poiService: PoiService) {   }
 

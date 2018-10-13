@@ -57,7 +57,7 @@ export class MapService {
   autoCompleteAddress(searchElement: ElementRef) {
     this.mapsAPILoader.load()
     .then(() => {
-      const autocomplete = new google.maps.places.Autocomplete(searchElement.nativeElement, { types: ['address'] });
+      const autocomplete = new google.maps.places.Autocomplete(searchElement.nativeElement);
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
           const place = autocomplete.getPlace();
