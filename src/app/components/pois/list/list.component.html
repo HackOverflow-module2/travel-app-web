@@ -2,10 +2,8 @@
   <agm-direction [origin]="origin" [destination]="destination">
   </agm-direction>
 <div *ngFor="let poi of pois">
-  <agm-marker 
-
-  [latitude]="poi.location.coordinates[0]" [longitude]="poi.location.coordinates[1]"
-
+  <agm-marker *ngIf="poi.location.length === 2"
+    [latitude]="poi.location[0]" [longitude]="poi.location[1]"
   ></agm-marker>
 </div>
 </agm-map>

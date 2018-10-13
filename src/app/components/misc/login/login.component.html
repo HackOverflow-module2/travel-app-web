@@ -1,4 +1,4 @@
-<form #userForm="ngForm" (ngSubmit)="onClickLogin()">
+<!-- <form #userForm="ngForm" (ngSubmit)="onClickLogin()">
   <div class="form-group">
     <label>Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="user.email">
@@ -8,4 +8,43 @@
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" [(ngModel)]="user.password">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form> -->
+
+  <div class="col-12">
+      <h2>
+          Login
+      </h2>
+    <form (ngSubmit)="onClickLogin(loginForm)" #loginForm="ngForm">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+        </div>
+        <input type="email" class="form-control" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }"
+          placeholder="Email" name="email" [(ngModel)]="user.email" #email="ngModel" required email>
+        <div class="invalid-feedback" *ngIf="email.errors && email.touched && email.errors.required">
+          Please chose an email.
+        </div>
+        <div class="invalid-feedback" *ngIf="email.errors && email.touched && email.errors.email">
+          Please enter valid email.
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+        </div>
+        <input type="password" class="form-control" [ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }"
+          placeholder="password" name="password" [(ngModel)]="user.password" #password="ngModel" required>
+        <div class="invalid-feedback" *ngIf="password.errors && password.touched && password.errors.required">
+          Please enter your password.
+        </div>
+        <div class="invalid-feedback" *ngIf="apiError">
+          {{ apiError.message }}
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Login</button>
+      </div>
+    </form>
+  </div>
+
+
