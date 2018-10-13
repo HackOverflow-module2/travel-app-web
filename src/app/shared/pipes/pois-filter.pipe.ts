@@ -6,16 +6,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PoisFilterPipe implements PipeTransform {
 
-  transform(pois: Array<Poi>, pattern: string, field: string = 'poiType'): Array<Poi> {
+  transform(pois: Array<Poi>, pattern: Array<string>, field: string = 'poiType'): Array<Poi> {
     if(!pois) {
       return [];
     } else if (!pattern) {
       return pois;
     } 
-
-    const regex = new RegExp(pattern, 'i');
+ 
+   return pois.filter(poi => (pattern.indexOf(poi[field]) !== -1))
     
-    return pois.filter(poi => poi[field].match(regex));
   }
 
 }
