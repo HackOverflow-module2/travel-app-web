@@ -13,7 +13,7 @@ export class MapService {
 
   origin:Coordinates = new Coordinates();
   destination: Coordinates = new Coordinates();
-
+  locationCoordinates: Coordinates = new Coordinates();
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
 
@@ -54,7 +54,23 @@ export class MapService {
     });
   }
 
-
+  autoCompleteAddress(searchElement: ElementRef) {
+    this.mapsAPILoader.load()
+    .then(() => {
+      const autocomplete = new google.maps.places.Autocomplete(searchElement.nativeElement, { types: ['address'] });
+      autocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          const place = autocomplete.getPlace();
+          this.locationCoordinates.lat = place.geometry.location.lat();
+          this.locationCoordinates.lng = place.geometry.location.lng();
+          this.saveCoordinates(MapService.DESTINATION_KEY, this.destination);
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+        });
+      });
+    });
+  }
 
   saveCoordinates(pointKey, pointValue): void {
     localStorage.setItem(pointKey, JSON.stringify(pointValue));

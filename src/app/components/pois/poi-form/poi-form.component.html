@@ -3,7 +3,7 @@
     <form (ngSubmit)="onSubmitPoiForm()" #poiForm="ngForm">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-tag"></i></span>
+          <span class="input-group-text"><i class="fa fa-font"></i></span>
         </div>
         <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Title"
           name="name" [(ngModel)]="poi.name" #name="ngModel" required>
@@ -16,7 +16,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-edit"></i></span>
         </div>
-        <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}" placeholder="Describe your point of interest"
           name="description" [(ngModel)]="poi.description" #description="ngModel"></textarea>
         <div class="invalid-feedback" *ngIf="description.errors && description.touched && description.errors.required">
           Please enter a description.
@@ -24,6 +24,9 @@
       </div>
 
       <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+        </div>
         <input type="text" class="form-control" id="location" autocorrect="off" autocapitalize="off" spellcheck="off" #location placeholder="location">
       </div>
 
@@ -31,13 +34,13 @@
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-tag"></i></span>
         </div>
-        <input type="text" name="poiType" #poiType="ngModel" [(ngModel)]="poi.poiType">
+        <input type="text" name="poiType" class="form-control" #poiType="ngModel" [(ngModel)]="poi.poiType">
         <!-- <select *ngFor="let poiType of poiTypes">
           <option value="poiType">{{poiType}}}</option>
         </select> -->
       </div>
       
-      <div class="input-group mb-3">
+      <!-- <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-gears"></i></span>
         </div>
@@ -55,7 +58,7 @@
         <div class="input-group-append">
           <button class="btn btn-outline-danger" type="button" (click)="onClickRemoveTag(tag)"><i class="fa fa-minus"></i></button>
         </div>
-      </div>
+      </div> -->
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
