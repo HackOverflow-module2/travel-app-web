@@ -2,9 +2,18 @@
   {{poi.name}}
 </p>
 
+<p>
+  {{poi.location}}
+</p>
+
 <div *ngFor="let image of poi.gallery" >
   <img [src]="image">
 </div>
+
+<p>
+    {{poi.poiType}}
+</p>
+  
 
 <app-review-create></app-review-create>
 

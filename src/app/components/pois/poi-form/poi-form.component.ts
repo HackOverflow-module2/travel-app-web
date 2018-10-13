@@ -1,6 +1,9 @@
 import { Poi } from './../../../shared/models/poi.model';
-import { Component, OnInit, Output, EventEmitter, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, Input, ElementRef, NgZone } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MapsAPILoader } from '@agm/core';
+import { MapService } from '../../../shared/services/map.service';
+/// <reference types="@types/googlemaps" />
 
 @Component({
   selector: 'app-poi-form',
@@ -12,14 +15,19 @@ export class PoiFormComponent implements OnInit {
   @Input() poi: Poi = new Poi();
   @Output() poiSubmit: EventEmitter<Poi> = new EventEmitter();
   @ViewChild('poiForm') poiForm: FormGroup;
+  @ViewChild('location') public  searchElement: ElementRef;
 
-  constructor() { }
+  constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mapService: MapService) { }
 
   ngOnInit() {
+    this.mapService.autoCompleteAddress(this.searchElement);
   }
 
   onSubmitPoiForm():void {
     if(this.poiForm.valid) {
+      this.poi.location[0] = this.mapService.locationCoordinates.lat;
+      this.poi.location[1] = this.mapService.locationCoordinates.lng;
+      console.log(this.poi);
       this.poiSubmit.emit(this.poi);
     }
   }

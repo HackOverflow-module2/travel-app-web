@@ -12,8 +12,6 @@ export class HomeComponent implements OnInit {
   @ViewChild('originSearch') public  searchElement: ElementRef;
   @ViewChild('destinationSearch') public  searchElement2: ElementRef;
 
-
-
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mapService: MapService) { }
 
   ngOnInit() {
