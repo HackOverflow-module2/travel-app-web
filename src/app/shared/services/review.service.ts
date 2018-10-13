@@ -53,5 +53,10 @@ export class ReviewService extends BaseApiService {
     this.reviewsSubject.next(this.reviews);
   }
 
+  reviewNumber(): number {
+    return this.reviews.length
+  }
+
+
 }
 
