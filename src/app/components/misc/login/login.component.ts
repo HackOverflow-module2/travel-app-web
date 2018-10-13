@@ -16,10 +16,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickLogin(): void {
-    this.sessionService.authenticate(this.user)
-    .subscribe((user) => {
-      this.router.navigate(['/profile']);
-    });
+  onClickLogin(loginForm): void {
+    if(loginForm.valid) {
+      this.sessionService.authenticate(this.user)
+      .subscribe((user) => {
+        this.router.navigate(['/profile']);
+      });
+    }
   }
 }
