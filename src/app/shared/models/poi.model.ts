@@ -23,11 +23,9 @@ export class Poi {
     data.append('name', this.name);
     data.append('description', this.description);
 
-    // if (this.tags) {
-    //   for (const tag of this.tags) {
-    //     data.append('tag', tag);
-    //   }
-    // }
+    for (const tag of this.tags) {
+      data.append('tag', tag);
+    }
     
     // data.append('rating', this.rating.toString());
 
