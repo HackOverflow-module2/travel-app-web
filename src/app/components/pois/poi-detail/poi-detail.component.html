@@ -1,20 +1,24 @@
-<p>
-  {{poi.name}}
-</p>
+<div class="container my-3">
 
-<p>
-  {{poi.location}}
-</p>
+  <p>
+    {{poi.name}}
+  </p>
 
-<div *ngFor="let image of poi.gallery" >
-  <img [src]="image">
+  <p>
+    {{poi.location}}
+  </p>
+
+  <div *ngFor="let image of poi.gallery" >
+    <img [src]="image">
+  </div>
+
+  <p>
+      {{poi.poiType}}
+  </p>
+    
+
+  <app-review-create></app-review-create>
+
+  <app-review-list></app-review-list>
+
 </div>
-
-<p>
-    {{poi.poiType}}
-</p>
-  
-
-<app-review-create></app-review-create>
-
-<app-review-list></app-review-list>

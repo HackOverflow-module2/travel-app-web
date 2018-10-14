@@ -46,7 +46,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.less",
               "./node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": []

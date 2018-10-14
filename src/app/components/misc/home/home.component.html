@@ -1,21 +1,21 @@
 <div id="hero">
-  <div class="container">
-    <h3>Create your trip</h3>
-    <form class="form-inline"  #tripForm="ngForm">
+  <div class="container my-3">
+    <h2>Create your trip</h2>
+    <form  #tripForm="ngForm">
         <div class="form-group mb-2">
           <input type="text" class="form-control" id="origin" autocorrect="off" autocapitalize="off" spellcheck="off" #originSearch placeholder="origin">  
         </div>
-        <div class="form-group mx-sm-3 mb-2">
+        <div class="form-group mb-2">
           <input type="text" class="form-control" id="destination" autocorrect="off" autocapitalize="off" spellcheck="off" #destinationSearch placeholder="destination">
         </div>
-        <button type="submit" class="btn btn-primary mb-2" [routerLink]="['/route']" routerLinkActive="router-link-active">Go</button>
+        <button type="submit" class="btn btn-primary mb-2W btn-block" [routerLink]="['/route']" routerLinkActive="router-link-active">Go</button>
       </form>
   </div>
 </div>
 
-<div class="col-12">
+<!-- <div class="col-12" >
   <button type="submit" class="btn btn-primary btn-block" [routerLink]="['/login']">Login</button>
   <hr>
   <a class="btn btn-success btn-block" [routerLink]="['/users']">Register</a>
-</div>
+</div> -->
 

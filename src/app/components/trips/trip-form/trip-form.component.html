@@ -2,32 +2,43 @@
   <div class="col-12">
     <h4>Create your trip</h4>
     <form (ngSubmit)="onSubmitTripForm()" #tripForm="ngForm">
-      <div class="input-group mb-3">
+
+      <div class="input-group sm-card mb-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+        </div>
+        <div class="form-control h-auto">
+          <div class="placeholder-text" *ngIf="tripPois.length <= 0">
+            (Stops will appear here as you click and save a pin)
+          </div>
+          <h4 *ngFor="let tripPoi of tripPois" class="d-inline">
+              <span class="badge badge-light">{{ tripPoi.name }}</span>
+          </h4>
+        </div>
+      </div>
+      
+      <div class="input-group mb-2">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-font"></i></span>
         </div>
-        <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Title"
+        <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Name your trip here"
           name="name" [(ngModel)]="trip.name" #name="ngModel" required>
         <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
           Give your trip a name.
         </div>
       </div>
       
-      <div class="input-group mb-3">
+      <div class="input-group mb-2">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fa fa-edit"></i></span>
         </div>
-        <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}" placeholder="Describe your You can put a description of your trip here"
+        <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}" placeholder="You can put a description of your trip here"
           name="description" [(ngModel)]="trip.description" #description="ngModel"></textarea>
         <div class="invalid-feedback" *ngIf="description.errors && description.touched && description.errors.required">
           
         </div>
       </div>
                   
-      <div *ngFor="let tripPoi of tripPois">
-          <p>{{ tripPoi.name }}</p>
-      </div>
-      
 
       <!-- <div class="input-group mb-3">
         <div class="input-group-prepend">

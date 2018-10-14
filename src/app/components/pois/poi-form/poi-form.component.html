@@ -1,116 +1,118 @@
-<div class="row mb-5">
-  <div class="col-12">
-    <form (ngSubmit)="onSubmitPoiForm()" #poiForm="ngForm">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-font"></i></span>
+<div class="container my-3">
+  <div class="row mb-5">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmitPoiForm()" #poiForm="ngForm">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-font"></i></span>
+          </div>
+          <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Title"
+            name="name" [(ngModel)]="poi.name" #name="ngModel" required>
+          <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
+            Please enter a title.
+          </div>
         </div>
-        <input type="text" class="form-control" [ngClass]="{'is-invalid': name.touched && name.errors}" placeholder="Title"
-          name="name" [(ngModel)]="poi.name" #name="ngModel" required>
-        <div class="invalid-feedback" *ngIf="name.errors && name.touched && name.errors.required">
-          Please enter a title.
+        
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-edit"></i></span>
+          </div>
+          <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}" placeholder="Describe your point of interest"
+            name="description" [(ngModel)]="poi.description" #description="ngModel"></textarea>
+          <div class="invalid-feedback" *ngIf="description.errors && description.touched && description.errors.required">
+            Please enter a description.
+          </div>
         </div>
-      </div>
-      
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-edit"></i></span>
-        </div>
-        <textarea type="text" class="form-control" [ngClass]="{'is-invalid': description.touched && description.errors}" placeholder="Describe your point of interest"
-          name="description" [(ngModel)]="poi.description" #description="ngModel"></textarea>
-        <div class="invalid-feedback" *ngIf="description.errors && description.touched && description.errors.required">
-          Please enter a description.
-        </div>
-      </div>
 
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+          </div>
+          <input type="text" class="form-control" id="location" autocorrect="off" autocapitalize="off" spellcheck="off" #location placeholder="location">
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-tag"></i></span>
+          </div>
+          <select  class="form-control" placeholder="test" id="poiType" [(ngModel)]="poi.poiType" #poiType="ngModel" name="poiType" >
+            <!-- <option value="">Select a type</option> -->
+            <option value="Museum" class="form-control">Museum</option>
+            <option value="Town" class="form-control">Town</option>
+            <option value="Scenary" class="form-control">Scenary</option>
+            <option value="Monument" class="form-control">Monument</option>
+            <option value="Walk" class="form-control">Walk</option>
+
+          </select>
+
+        </div>
+        
+        <!-- <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-gears"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Tag" name="tag" #tag>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="onClickAddTag(tag)"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+        
+        <div class="input-group mb-3" *ngFor="let tag of poi.tags">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-gear"></i></span>
+          </div>
+          <input type="text" class="form-control" name="tags" [value]="tag" disabled readonly>
+          <div class="input-group-append">
+            <button class="btn btn-outline-danger" type="button" (click)="onClickRemoveTag(tag)"><i class="fa fa-minus"></i></button>
+          </div>
+        </div> -->
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-file-o"></i></span>
+          </div>
+          <div class="custom-file">
+            <input type="file" name="gallery" class="custom-file-input" #poiFiles multiple (change)="onChangeGalleryFile(poiFiles)">
+            <label class="custom-file-label">Choose files</label>
+          </div>
+          <div class="invalid-feedback" *ngIf="poiFiles.errors">
+            Please choose a file.
+          </div>
+        </div>
+        <!-- 
+
+  <div class="container">
+    <div class="row">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+          <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
         </div>
-        <input type="text" class="form-control" id="location" autocorrect="off" autocapitalize="off" spellcheck="off" #location placeholder="location">
+        <input type="text" class="form-control" placeholder="Search by title..." name="searchPattern" [(ngModel)]="searchPattern">
       </div>
-
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-tag"></i></span>
+          <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
         </div>
-        <select  class="form-control" placeholder="test" id="poiType" [(ngModel)]="poi.poiType" #poiType="ngModel" name="poiType" >
-          <!-- <option value="">Select a type</option> -->
-          <option value="Museum" class="form-control">Museum</option>
-          <option value="Town" class="form-control">Town</option>
-          <option value="Scenary" class="form-control">Scenary</option>
-          <option value="Monument" class="form-control">Monument</option>
-          <option value="Walk" class="form-control">Walk</option>
-
+        <select [(ngModel)]="searchField">
+          <option value="title">Title</option>
+          <option value="summary">Summary</option>
         </select>
 
       </div>
-      
-      <!-- <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-gears"></i></span>
-        </div>
-        <input type="text" class="form-control" placeholder="Tag" name="tag" #tag>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" (click)="onClickAddTag(tag)"><i class="fa fa-plus"></i></button>
-        </div>
-      </div>
-      
-      <div class="input-group mb-3" *ngFor="let tag of poi.tags">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-gear"></i></span>
-        </div>
-        <input type="text" class="form-control" name="tags" [value]="tag" disabled readonly>
-        <div class="input-group-append">
-          <button class="btn btn-outline-danger" type="button" (click)="onClickRemoveTag(tag)"><i class="fa fa-minus"></i></button>
-        </div>
-      </div> -->
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-file-o"></i></span>
-        </div>
-        <div class="custom-file">
-          <input type="file" name="gallery" class="custom-file-input" #poiFiles multiple (change)="onChangeGalleryFile(poiFiles)">
-          <label class="custom-file-label">Choose files</label>
-        </div>
-        <div class="invalid-feedback" *ngIf="poiFiles.errors">
-          Please choose a file.
-        </div>
-      </div>
-      <!-- 
-
-<div class="container">
-  <div class="row">
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
-      </div>
-      <input type="text" class="form-control" placeholder="Search by title..." name="searchPattern" [(ngModel)]="searchPattern">
     </div>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
-      </div>
-      <select [(ngModel)]="searchField">
-        <option value="title">Title</option>
-        <option value="summary">Summary</option>
-      </select>
 
-    </div>
-  </div>
+    <div class="row">
+      <div class="card-group">
+        <div class="card" *ngFor="let film of films | filmF      <div class="row mt-3 mb-3">
+          <div class="col-3" *ngFor="let previewImage of previewImages">
+            <img class="card-img-top img-thumbnail" [src]="previewImage" (error)="onImgPreviewError(image)" #image>
+          </div>
+        </div> -->
 
-  <div class="row">
-    <div class="card-group">
-      <div class="card" *ngFor="let film of films | filmF      <div class="row mt-3 mb-3">
-        <div class="col-3" *ngFor="let previewImage of previewImages">
-          <img class="card-img-top img-thumbnail" [src]="previewImage" (error)="onImgPreviewError(image)" #image>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!poiForm.valid">Create</button>
         </div>
-      </div> -->
-
-      <div class="form-actions">
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="!poiForm.valid">Create</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
