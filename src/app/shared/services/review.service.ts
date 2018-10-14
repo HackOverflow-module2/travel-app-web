@@ -15,6 +15,7 @@ export class ReviewService extends BaseApiService {
   
   private reviews: Array<Review> = [];
   private reviewsSubject: Subject <Array<Review>> = new Subject();
+  reviewsNumber: number;
 
   constructor(private http: HttpClient) { 
     super();
@@ -39,6 +40,7 @@ export class ReviewService extends BaseApiService {
         map((reviews: Array<Review>) => {
           reviews = reviews.map(review => Object.assign(new Review(), review))
           this.reviews = reviews;
+          this.reviewsNumber = this.reviews.length;
           this.notifyReviewChanges();
           return reviews
         })
@@ -52,6 +54,11 @@ export class ReviewService extends BaseApiService {
   private notifyReviewChanges(): void {
     this.reviewsSubject.next(this.reviews);
   }
+
+  reviewNumber(): number {
+    return this.reviews.length
+  }
+
 
 }
 
