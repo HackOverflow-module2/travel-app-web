@@ -1,7 +1,7 @@
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-direction [origin]="origin" [destination]="destination">
   </agm-direction>
-<div *ngFor="let poi of pois | poisFilter:searchPattern">
+<div *ngFor="let poi of pois | poisFilter:searchPattern | poiRatingFilter:searchPatternRating">
   <agm-marker *ngIf="poi.location.length === 2"
     [latitude]="poi.location[0]" [longitude]="poi.location[1]"
   ></agm-marker>
@@ -19,4 +19,27 @@
     </select>
 </div>
 
- <!-- <input type="text" name="searchPattern" [(ngModel)]="searchPattern" placeholder="search"> -->
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="searchPatternRating" id="inlineRadio1" value="1" [(ngModel)]="searchPatternRating">
+    <label class="form-check-label" for="inlineRadio1">1</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="searchPatternRating" id="inlineRadio2" value="2" [(ngModel)]="searchPatternRating">
+    <label class="form-check-label" for="inlineRadio2">2</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="searchPatternRating" id="inlineRadio3" value="3" [(ngModel)]="searchPatternRating">
+    <label class="form-check-label" for="inlineRadio3">3</label>
+  </div>
+  <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="searchPatternRating" id="inlineRadio3" value="4" [(ngModel)]="searchPatternRating">
+      <label class="form-check-label" for="inlineRadio3">4</label>
+  </div>
+  <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="searchPatternRating" id="inlineRadio3" value="5" [(ngModel)]="searchPatternRating">
+      <label class="form-check-label" for="inlineRadio3">5</label>
+  </div>
+
+<div *ngFor="let poi of pois">
+  {{poi.name}} - {{poi.rating}}
+</div>

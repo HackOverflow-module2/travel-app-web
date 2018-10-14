@@ -14,7 +14,7 @@ export class PoiRatingFilterPipe implements PipeTransform {
       return pois;
     } 
  
-   return 
-    
+    return pois.filter(poi => (poi.rating >= pattern));
+
   }
 }
