@@ -1,3 +1,4 @@
+import { TripDetailComponent } from './components/trips/trip-detail/trip-detail.component';
 import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.component';
 import { PoiCreateComponent } from './components/pois/poi-create/poi-create.component';
 import { LoginComponent } from './components/misc/login/login.component';
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'pois', component: PoiCreateComponent },
   { path: 'pois/:id', component: PoiDetailComponent },
-  { path: 'users', component: UserCreateComponent }
+  { path: 'users', component: UserCreateComponent },
+  { path: 'trips/:id', component: TripDetailComponent }
+
 ];
 
 @NgModule({

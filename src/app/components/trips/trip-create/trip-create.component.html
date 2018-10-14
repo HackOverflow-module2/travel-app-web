@@ -1,5 +1,2 @@
-<app-trip-form (poiSubmit)="onSubmitCreateTripForm($event)"></app-trip-form>
+<app-trip-form (tripSubmit)="onSubmitCreateTripForm($event)" [tripPois]="tripPois"></app-trip-form>
 
-    <div *ngFor="let tripPoi of tripPois">
-        <p>{{ tripPoi.name }}</p>
-    </div>

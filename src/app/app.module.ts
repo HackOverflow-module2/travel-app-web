@@ -1,3 +1,4 @@
+import { TripDetailComponent } from './components/trips/trip-detail/trip-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/misc/header/header.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
@@ -43,6 +44,7 @@ import { TripFormComponent } from './components/trips/trip-form/trip-form.compon
     PoiRatingFilterPipe,
     TripCreateComponent,
     TripFormComponent,
+    TripDetailComponent
   ],
   imports: [
     BrowserModule,

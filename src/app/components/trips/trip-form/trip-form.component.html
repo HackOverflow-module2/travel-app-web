@@ -23,10 +23,11 @@
           
         </div>
       </div>
-      
-      <div class="input-group mb-3" *ngFor="let poi of trip.pois">
-        <div>{{poi.name}}</div>
+                  
+      <div *ngFor="let tripPoi of tripPois">
+          <p>{{ tripPoi.name }}</p>
       </div>
+      
 
       <!-- <div class="input-group mb-3">
         <div class="input-group-prepend">
