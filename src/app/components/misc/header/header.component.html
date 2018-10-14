@@ -8,32 +8,38 @@
   </button>
 
 
-  <div class="collapse navbar-collapse colorlib-nav" [ngbCollapse]="!isNavbarCollapsed"  id="menuCollapse">
+  <div class="collapse navbar-collapse" [ngbCollapse]="!isNavbarCollapsed"  id="menuCollapse">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown" ngbDropdown routerLinkActive="active" *ngIf="user">
+      <li class="nav-item dropdown" ngbDropdown *ngIf="user">
         <a class="nav-link dropdown-toggle" id="menuDropdown" ngbDropdownToggle>Me</a>
         <div class="dropdown-menu bg-dark" ngbDropdownMenu aria-labelledby="menuDropdown">
-          <a class="dropdown-item" [routerLink]="['/user']" >
-            My profile
-          </a>
-          <a class="dropdown-item" [routerLink]="['/trips']">
-            My trips
-          </a>
-        </div>
+          <ul class="dropdown-nav">
+            <li class="nav-item" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+              <a class="dropdown-item nav-link" [routerLink]="['/profile']" >
+                My profile
+              </a>
+            </li>
+            <li class="nav-item" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+              <a class="dropdown-item nav-link" [routerLink]="['/trips']">
+                My trips
+              </a>
+            </li>
+        </ul>
+      </div>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" href="/">new trip</a>
+      <li class="nav-item"(click)="isNavbarCollapsed = !isNavbarCollapsed">
+        <a class="nav-link" [routerLink]="['/']">new trip</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" href="/pois">new POI</a>
+      <li class="nav-item" (click)="isNavbarCollapsed = !isNavbarCollapsed"  >
+        <a class="nav-link" [routerLink]="['/pois']" >new POI</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf="!user">
+      <li class="nav-item" *ngIf="!user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf="!user">
+      <li class="nav-item" *ngIf="!user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
         <a class="nav-link" [routerLink]="['/register']">Register</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf="user">
+      <li class="nav-item" *ngIf="user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
         <button class="nav-link btn btn-link" (click)="onClickLogout()">Logout</button>
       </li>
     </ul>
