@@ -1,6 +1,6 @@
 import { ReviewService } from './../../../shared/services/review.service';
 import { PoiService } from './../../../shared/services/poi.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MapService } from '../../../shared/services/map.service';
 import { Coordinates } from '../../../shared/models/coordinates.model';
 import { Poi } from '../../../shared/models/poi.model';
@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   origin: Coordinates = this.mapService.getOrigin();
   destination: Coordinates = this.mapService.getDestination();
   pois: Array<Poi> = [];
+  tripPois: Array<Poi> = [];
   searchPattern: string;
   searchPatternRating: number;
 
@@ -39,6 +40,10 @@ export class ListComponent implements OnInit {
           })
         })
     });
+  }
+
+  onClickAddPoi(poi) {
+    this.tripPois.push(poi);
   }
 
 }

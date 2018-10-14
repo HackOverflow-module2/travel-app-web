@@ -3,8 +3,7 @@
   </agm-direction>
 <div *ngFor="let poi of pois | poisFilter:searchPattern | poiRatingFilter:searchPatternRating">
   <agm-marker *ngIf="poi.location.length === 2"
-    [latitude]="poi.location[0]" [longitude]="poi.location[1]"
-  ></agm-marker>
+    [latitude]="poi.location[0]" [longitude]="poi.location[1]" (markerClick)="onClickAddPoi(poi)"></agm-marker>
 </div>
 </agm-map>
 
@@ -40,6 +39,6 @@
       <label class="form-check-label" for="inlineRadio3">5</label>
   </div>
 
-<div *ngFor="let poi of pois">
-  {{poi.name}} - {{poi.rating}}
-</div>
+<button type="submit" class="btn btn-primary mb-2" >Create trip</button>
+
+<app-trip-create [tripPois]="tripPois"></app-trip-create>

@@ -1,3 +1,4 @@
+import { TripDetailComponent } from './components/trips/trip-detail/trip-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/misc/header/header.component';
 import { UserDetailComponent } from './components/users/user-detail/user-detail.component';
@@ -21,6 +22,8 @@ import { ReviewCreateComponent } from './components/reviews/review-create/review
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 import { PoisFilterPipe } from './shared/pipes/pois-filter.pipe';
 import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
+import { TripCreateComponent } from './components/trips/trip-create/trip-create.component';
+import { TripFormComponent } from './components/trips/trip-form/trip-form.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
     ReviewListComponent,
     PoisFilterPipe,
     PoiRatingFilterPipe,
+    TripCreateComponent,
+    TripFormComponent,
+    TripDetailComponent
   ],
   imports: [
     BrowserModule,
