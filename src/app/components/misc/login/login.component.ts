@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     if(loginForm.valid) {
       this.sessionService.authenticate(this.user)
       .subscribe((user) => {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/']);
       });
     }
   }
