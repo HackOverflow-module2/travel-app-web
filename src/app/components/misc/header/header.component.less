@@ -10,24 +10,26 @@ button:focus {
   outline: none;
 }
 
-.navbar-collapse {
-  position: absolute;
-  background-color: #343a40 !important;
-  width: 100%;
-  top: 40px;
-  left: 0;
-  right: 0;
-  z-index: 99;
-
-  ul {
-    padding: 15px;
+@media screen and (max-width: 991px) {
+  .navbar-collapse {
+    position: absolute;
+    background-color: #343a40 !important;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  
+    ul {
+      padding: 0 15px 10px;
+    }
   }
-}
-
-.dropdown-menu {
-  padding: 0 15px;
-
-  .dropdown-nav {
-    padding: 0;
+  
+  .dropdown-menu {
+    padding: 0 15px;
+  
+    .dropdown-nav {
+      padding: 0;
+    }
   }
 }

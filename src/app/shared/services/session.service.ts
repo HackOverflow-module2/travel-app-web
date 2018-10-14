@@ -39,6 +39,10 @@ export class SessionService extends BaseApiService {
     );
   }
 
+  isAuthenticated(): boolean {
+    return this.user ? true : false;
+  }
+
   logout(): Observable<void | ApiError> {
     return this.http.delete(SessionService.SESSIONS_API, BaseApiService.defaultOptions)
       .pipe(

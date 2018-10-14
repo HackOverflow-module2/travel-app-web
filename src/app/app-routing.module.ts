@@ -9,18 +9,19 @@ import { HomeComponent } from './components/misc/home/home.component';
 import { MapComponent } from './components/map/map.component';
 import { ListComponent } from './components/pois/list/list.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'maps', component: MapComponent },
-  { path: 'route', component: ListComponent },
+  { path: '', canActivate: [IsAuthenticatedGuard], component: HomeComponent },
+  { path: 'maps', canActivate: [IsAuthenticatedGuard], component: MapComponent },
+  { path: 'route', canActivate: [IsAuthenticatedGuard], component: ListComponent },
   { path: 'profile', component: UserDetailComponent  },
   { path: 'login', component: LoginComponent },
-  { path: 'pois', component: PoiCreateComponent },
-  { path: 'pois/:id', component: PoiDetailComponent },
+  { path: 'pois',  canActivate: [IsAuthenticatedGuard], component: PoiCreateComponent },
+  { path: 'pois/:id', canActivate: [IsAuthenticatedGuard], component: PoiDetailComponent },
   { path: 'users', component: UserCreateComponent },
-  { path: 'trips/:id', component: TripDetailComponent }
+  { path: 'trips/:id', canActivate: [IsAuthenticatedGuard], component: TripDetailComponent }
 
 ];
 
