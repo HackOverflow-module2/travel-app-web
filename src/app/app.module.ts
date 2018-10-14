@@ -21,6 +21,7 @@ import { ReviewCreateComponent } from './components/reviews/review-create/review
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 import { PoisFilterPipe } from './shared/pipes/pois-filter.pipe';
 import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
+import { TripCreateComponent } from './components/trips/trip-create/trip-create.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
     ReviewListComponent,
     PoisFilterPipe,
     PoiRatingFilterPipe,
+    TripCreateComponent,
   ],
   imports: [
     BrowserModule,
