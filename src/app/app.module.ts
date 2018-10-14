@@ -19,6 +19,8 @@ import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.comp
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { ReviewCreateComponent } from './components/reviews/review-create/review-create.component';
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
+import { PoisFilterPipe } from './shared/pipes/pois-filter.pipe';
+import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ReviewListComponent } from './components/reviews/review-list/review-lis
     UserCreateComponent,
     ReviewCreateComponent,
     ReviewListComponent,
+    PoisFilterPipe,
+    PoiRatingFilterPipe,
   ],
   imports: [
     BrowserModule,

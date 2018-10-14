@@ -79,7 +79,30 @@
         </div>
       </div>
       <!-- 
-      <div class="row mt-3 mb-3">
+
+<div class="container">
+  <div class="row">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Search by title..." name="searchPattern" [(ngModel)]="searchPattern">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fa fa-find"></i></span>
+      </div>
+      <select [(ngModel)]="searchField">
+        <option value="title">Title</option>
+        <option value="summary">Summary</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card-group">
+      <div class="card" *ngFor="let film of films | filmF      <div class="row mt-3 mb-3">
         <div class="col-3" *ngFor="let previewImage of previewImages">
           <img class="card-img-top img-thumbnail" [src]="previewImage" (error)="onImgPreviewError(image)" #image>
         </div>
