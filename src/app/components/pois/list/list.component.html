@@ -3,8 +3,7 @@
   </agm-direction>
 <div *ngFor="let poi of pois | poisFilter:searchPattern | poiRatingFilter:searchPatternRating">
   <agm-marker *ngIf="poi.location.length === 2"
-    [latitude]="poi.location[0]" [longitude]="poi.location[1]"
-  ></agm-marker>
+    [latitude]="poi.location[0]" [longitude]="poi.location[1]" (markerClick)="onClickAddPoi(poi)"></agm-marker>
 </div>
 </agm-map>
 
@@ -42,4 +41,4 @@
 
 <button type="submit" class="btn btn-primary mb-2" >Create trip</button>
 
-<app-trip-create></app-trip-create>
+<app-trip-create [tripPois]="tripPois"></app-trip-create>

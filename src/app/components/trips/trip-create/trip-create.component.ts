@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Poi } from './../../../shared/models/poi.model';
+import { Component, OnInit, Input } from '@angular/core';
 import { MapService } from '../../../shared/services/map.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { MapService } from '../../../shared/services/map.service';
 })
 export class TripCreateComponent implements OnInit {
 
+  @Input() tripPois: Array<Poi> =[];
+
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
-    
   }
 
 }
