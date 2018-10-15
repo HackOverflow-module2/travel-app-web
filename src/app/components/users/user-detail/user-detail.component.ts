@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class UserDetailComponent implements OnInit {
 
   user: User = new User();
+  editProfile: boolean = false;
   
   constructor(private userService: UserService, private sessionService: SessionService) { }
 
@@ -22,6 +23,8 @@ export class UserDetailComponent implements OnInit {
     this.userService.detail(userId).subscribe()
   }
 
- 
+  onClickEditProfile() {
+    this.editProfile = true;
+  }
 
 }

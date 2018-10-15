@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'users', component: UserCreateComponent },
   { path: 'trips/:id', canActivate: [IsAuthenticatedGuard], component: TripDetailComponent }
 
+  
 ];
 
 @NgModule({

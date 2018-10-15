@@ -12,6 +12,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService extends BaseApiService{
 
+  user: User = new User();
+
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
 
   constructor(private http: HttpClient) { 
@@ -21,12 +23,29 @@ export class UserService extends BaseApiService{
   create(user: User): Observable<User | ApiError> {
     return this.http.post<User>(UserService.USER_API, user, BaseApiService.defaultOptions)
       .pipe(
-        map((user: User) => Object.assign(new User(), user)),
+        map((user: User) => {
+        Object.assign(new User(), user)
+        this.user = user;
+        return user;
+        }),
+        catchError(this.handleError)
+      );
+  }
+  
+  detail(userId: string): Observable<User | ApiError> {
+    return this.http.get<User>(`${UserService.USER_API}/${userId}`, BaseApiService.defaultOptions)
+      .pipe(
+        map((user: User) => Object.assign(new User(), User)),
+        catchError(this.handleError)
+      );
+  }
+
+  edit(userId: string, user: User): Observable<User | ApiError> {
+    return this.http.post<User>(`${UserService.USER_API}/${userId}`, user, BaseApiService.defaultOptions)
+      .pipe(
+        map((user: User) => Object.assign(new User(), User)),
         catchError(this.handleError)
       )
   }
-  
-  detail(userId: String): Observable<User | ApiError> {
-    return this.http.get<User>(`${UserService.USER_API}/${userId}`, BaseApiService.defaultOptions);
-  }
+
 }

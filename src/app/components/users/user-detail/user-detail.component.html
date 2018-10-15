@@ -1,3 +1,10 @@
-<p>
- {{ user.firstName }}
-</p>
+<div *ngIf="!editProfile">
+    <p>
+    {{ user.firstName }}
+    </p>
+    <button (click)="onClickEditProfile()">Edit Profile</button>
+</div>
+
+<div *ngIf="editProfile">
+    <app-user-edit [user]="user"></app-user-edit>
+</div>
