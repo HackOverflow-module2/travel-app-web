@@ -1,7 +1,17 @@
+<div class="banner-wrap">
+  <h2 class="card-title">{{trip.name}}</h2>
+</div>
+
 <div class="container my-3">
+  <div class="card-body">
+    <p class="card-text">{{trip.description}}</p>
+    <a href="#" class="card-link">See POIs</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
 
-  <p>
-    trip-detail works!
-  </p>
 
+  <div *ngFor="let image of trip.gallery" >
+    <img [src]="image">
+  </div>
+    
 </div>
