@@ -37,7 +37,7 @@
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>
       <li class="nav-item" *ngIf="!user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
-        <a class="nav-link" [routerLink]="['/register']">Register</a>
+        <a class="nav-link" [routerLink]="['/users']">Register</a>
       </li>
       <li class="nav-item" *ngIf="user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
         <button class="nav-link btn btn-link" (click)="onClickLogout()">Logout</button>
