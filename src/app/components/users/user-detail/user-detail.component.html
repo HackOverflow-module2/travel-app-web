@@ -1,10 +1,7 @@
-<div *ngIf="!editProfile">
+<div class="container my-3">
     <p>
     {{ user.firstName }}
     </p>
-    <button (click)="onClickEditProfile()">Edit Profile</button>
-</div>
-
-<div *ngIf="editProfile">
-    <app-user-edit [user]="user"></app-user-edit>
+    <img [src]="user.image" alt="">
+    <a [routerLink]="['edit']">Edit Profile</a>
 </div>

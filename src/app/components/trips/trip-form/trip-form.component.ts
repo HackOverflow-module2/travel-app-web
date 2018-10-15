@@ -12,11 +12,10 @@ import { Poi } from '../../../shared/models/poi.model';
 export class TripFormComponent implements OnInit {
 
   @Input() tripPois: Array<Poi> =[];
+  @Input() trip: Trip = new Trip();
   @ViewChild('tripForm') tripForm: FormGroup;
   @Output() tripSubmit: EventEmitter<Trip> = new EventEmitter();
 
-
-  trip: Trip = new Trip();
 
   constructor(private mapService: MapService) { }
 

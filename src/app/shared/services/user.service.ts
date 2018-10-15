@@ -35,15 +35,18 @@ export class UserService extends BaseApiService{
   detail(userId: string): Observable<User | ApiError> {
     return this.http.get<User>(`${UserService.USER_API}/${userId}`, BaseApiService.defaultOptions)
       .pipe(
-        map((user: User) => Object.assign(new User(), User)),
+        map((user: User) => Object.assign(new User(), user)),
         catchError(this.handleError)
       );
   }
 
   edit(userId: string, user: User): Observable<User | ApiError> {
-    return this.http.post<User>(`${UserService.USER_API}/${userId}`, user, BaseApiService.defaultOptions)
+    return this.http.post<User>(`${UserService.USER_API}/${userId}`, user.asFormData(), { withCredentials: true })
       .pipe(
-        map((user: User) => Object.assign(new User(), User)),
+        map((user: User) => {
+          Object.assign(new User(), user)
+          return user;
+        }),
         catchError(this.handleError)
       )
   }
