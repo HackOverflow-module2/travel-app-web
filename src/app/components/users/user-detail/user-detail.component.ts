@@ -17,9 +17,7 @@ export class UserDetailComponent implements OnInit {
   constructor(private userService: UserService, private sessionService: SessionService) { }
 
   ngOnInit() {
-
-    this.user = this.sessionService.user;
-    console.log(this.user);
+    this.user = this.sessionService.getItemLocalStorage();
     const userId = this.user.id;
   }
 

@@ -15,6 +15,7 @@ export class UserService extends BaseApiService{
   user: User = new User();
 
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
+  private static readonly CURRENT_USER_KEY = 'current-user';
 
   constructor(private http: HttpClient) { 
     super();
@@ -45,10 +46,18 @@ export class UserService extends BaseApiService{
       .pipe(
         map((user: User) => {
           Object.assign(new User(), user)
+          this.upDateUser(user);
           return user;
         }),
         catchError(this.handleError)
       )
   }
 
+
+  private upDateUser(user: User): void {
+    this.user = user;
+    localStorage.setItem(UserService.CURRENT_USER_KEY, JSON.stringify(this.user));
+  }
+
+  getUserData
 }
