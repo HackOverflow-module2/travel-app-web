@@ -1,8 +1,8 @@
+import { User } from './../../../shared/models/user.model';
 import { SessionService } from './../../../shared/services/session.service';
 import { map } from 'rxjs/operators';
 import { UserService } from './../../../shared/services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../../shared/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,11 +17,9 @@ export class UserDetailComponent implements OnInit {
   constructor(private userService: UserService, private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.user = this.sessionService.user;
+    this.user = this.sessionService.getItemLocalStorage();
     const userId = this.user.id;
-    this.userService.detail(userId).subscribe()
   }
 
- 
 
 }

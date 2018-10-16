@@ -1,0 +1,46 @@
+
+<form class="col-12 mx-auto" #editForm="ngForm" (ngSubmit)="onClickEditUser(editForm)">
+    <h2>
+      Edit profile
+  </h2>
+
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-file-o"></i></span>
+      </div>
+      <div class="custom-file">
+        <input type="file" name="image" class="custom-file-input" #image (change)="onChangeImage(image)">
+        <label class="custom-file-label">Choose file</label>
+      </div>
+      <div class="invalid-feedback" *ngIf="image.errors">
+        Please choose a file.
+      </div>
+    </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+    </div>
+    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': apiError || firstName.errors && firstName.touched }" name="firstName" placeholder="Name" [(ngModel)]="user.firstName" #firstName="ngModel" required firstName>
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+    </div>
+    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': apiError || surname.errors && surname.touched }" name="surname" placeholder="Last name" [(ngModel)]="user.surname" #surname="ngModel" required surname>
+  </div>
+
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+    </div>
+    <input type="email" class="form-control" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }" name="email" placeholder="user@exaple.org" [(ngModel)]="user.email" #email="ngModel" required email>
+  </div>
+
+  <div>
+    <button class="btn btn-success mb-2 btn-block" type="submit">Save changes</button>
+    <hr>
+  </div>
+
+</form>
