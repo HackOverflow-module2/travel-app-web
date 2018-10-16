@@ -3,7 +3,7 @@ import { PoiService } from './../../../shared/services/poi.service';
 import { ApiError } from './../../../shared/models/api-error.model';
 import { Coordinates } from './../../../shared/models/coordinates.model';
 import { map, switchMap } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TripService } from './../../../shared/services/trip.service';
 import { Trip } from './../../../shared/models/trip.model';
 import { Component, OnInit } from '@angular/core';
@@ -25,7 +25,7 @@ export class TripEditComponent implements OnInit {
   inTripEdition: boolean = true;
 
 
-  constructor(private tripService: TripService, private poiService:PoiService, private route: ActivatedRoute) { }
+  constructor(private tripService: TripService, private poiService:PoiService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getTrip();
@@ -58,6 +58,11 @@ export class TripEditComponent implements OnInit {
       lat: this.trip.destinationLocation[0], 
       lng: this.trip.destinationLocation[1]
     }
+  }
+
+  onClickUpdateTrip(trip):void {
+    this.tripService.edit(this.tripId, trip)
+    .subscribe((trip: Trip) => this.router.navigate(['trips', trip.id]))
   }
 
 }

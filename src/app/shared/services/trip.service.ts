@@ -18,7 +18,7 @@ export class TripService extends BaseApiService {
   }
 
   create(trip): Observable<Trip | ApiError> {
-    return this.http.post<Trip>(TripService.TRIP_API, trip, BaseApiService.defaultOptions)
+    return this.http.post<Trip>(TripService.TRIP_API, trip.asFormData(), {withCredentials: true})
       .pipe(
         map((trip: Trip) => Object.assign(new Trip(), trip))
       );
@@ -31,4 +31,10 @@ export class TripService extends BaseApiService {
       );
   }
 
+  edit(tripId, trip): Observable<Trip | ApiError> {
+    return this.http.post<Trip>(`${TripService.TRIP_API}/${tripId}`, trip.asFormData(), {withCredentials: true})
+      .pipe(
+        map((trip: Trip) => Object.assign(new Trip(), trip))
+      );
+  }
 }
