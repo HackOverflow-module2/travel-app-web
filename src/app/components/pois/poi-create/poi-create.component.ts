@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { Router } from '@angular/router';
 import { Poi } from './../../../shared/models/poi.model';
 import { PoiService } from './../../../shared/services/poi.service';
@@ -21,10 +22,8 @@ export class PoiCreateComponent implements OnInit {
   onSubmitCreatePoiForm(poi: Poi): void {
     this.poiService.create(poi)
     .subscribe((poi: Poi) => {
-      debugger;
       this.poiFormComponent.reset();
       this.router.navigate(['/pois', poi.id]);
-    })
-
+    });
   }
 }

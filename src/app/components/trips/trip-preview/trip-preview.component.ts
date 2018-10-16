@@ -9,12 +9,13 @@ import { Trip } from './../../../shared/models/trip.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-trip-edit',
-  templateUrl: './trip-edit.component.html',
-  styleUrls: ['./trip-edit.component.less']
+  selector: 'app-trip-preview',
+  templateUrl: './trip-preview.component.html',
+  styleUrls: ['./trip-preview.component.less']
 })
-export class TripEditComponent implements OnInit {
+export class TripPreviewComponent implements OnInit {
 
+ 
   trip: Trip;
   tripId: string;
   origin: Coordinates;
@@ -22,7 +23,6 @@ export class TripEditComponent implements OnInit {
   apiError: ApiError;
   tripPois: Array<Poi> = [];
   inRoute: boolean = false;
-  inTripEdition: boolean = true;
 
 
   constructor(private tripService: TripService, private poiService:PoiService, private route: ActivatedRoute) { }
@@ -61,3 +61,5 @@ export class TripEditComponent implements OnInit {
   }
 
 }
+
+

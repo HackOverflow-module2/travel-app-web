@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { Router } from '@angular/router';
 import { SessionService } from './../../../shared/services/session.service';
 import { UserService } from './../../../shared/services/user.service';
@@ -12,6 +13,7 @@ import { User } from '../../../shared/models/user.model';
 export class UserEditComponent implements OnInit {
 
   user: User = new User();
+  apiError: ApiError;
 
   constructor(private userService: UserService, private sessionService: SessionService, private router: Router) { }
 
@@ -31,7 +33,8 @@ export class UserEditComponent implements OnInit {
       const userId = this.user.id;
       this.userService.edit(userId, this.user).subscribe((user: User) => {
         this.router.navigate(['/profile'])
-      })
+      },
+      (error: ApiError) => this.apiError = error)
     }
 
   }

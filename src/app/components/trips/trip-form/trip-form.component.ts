@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { MapService } from './../../../shared/services/map.service';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core';
@@ -15,7 +16,7 @@ export class TripFormComponent implements OnInit {
   @Input() trip: Trip = new Trip();
   @ViewChild('tripForm') tripForm: FormGroup;
   @Output() tripSubmit: EventEmitter<Trip> = new EventEmitter();
-
+  apiError: ApiError;
 
   constructor(private mapService: MapService) { }
 

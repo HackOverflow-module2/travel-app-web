@@ -32,6 +32,10 @@
       <input type="password" class="form-control"[ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required password>
     </div>
 
+    <div class="invalid-feedback" *ngIf="apiError">
+        <p>{{ apiError.message }}</p>
+    </div>
+
     <div class="">
 
       <button class="btn btn-success mb-2 btn-block" type="submit" [disabled]="!registerForm.valid">Register</button>

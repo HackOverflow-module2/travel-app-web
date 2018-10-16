@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { Poi } from './../../../shared/models/poi.model';
 import { Component, OnInit, Output, EventEmitter, ViewChild, Input, ElementRef, NgZone } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -16,6 +17,8 @@ export class PoiFormComponent implements OnInit {
   @Output() poiSubmit: EventEmitter<Poi> = new EventEmitter();
   @ViewChild('poiForm') poiForm: FormGroup;
   @ViewChild('location') public  searchElement: ElementRef;
+  apiError: ApiError;
+
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mapService: MapService) { }
 
@@ -27,7 +30,6 @@ export class PoiFormComponent implements OnInit {
     if(this.poiForm.valid) {
       this.poi.location[0] = this.mapService.locationCoordinates.lat;
       this.poi.location[1] = this.mapService.locationCoordinates.lng;
-      console.log(this.poi);
       this.poiSubmit.emit(this.poi);
     }
   }

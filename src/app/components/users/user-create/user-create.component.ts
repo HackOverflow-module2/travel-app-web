@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { UserService } from './../../../shared/services/user.service';
 import { User } from './../../../shared/models/user.model';
 import { Router } from '@angular/router';
@@ -10,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCreateComponent implements OnInit {
 
-  user: User = new User()
+  user: User = new User();
+  apiError: ApiError;
+
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -21,6 +24,9 @@ export class UserCreateComponent implements OnInit {
     if(registerForm.valid) {
       this.userService.create(this.user).subscribe(()=> {
         this.router.navigate(['/login'])
+      },   
+      (error: ApiError) => {
+        this.apiError = error
       })
     }
   }

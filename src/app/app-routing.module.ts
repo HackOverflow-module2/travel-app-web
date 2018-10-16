@@ -1,3 +1,4 @@
+import { TripEditComponent } from './components/trips/trip-edit/trip-edit.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { TripDetailComponent } from './components/trips/trip-detail/trip-detail.component';
 import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.component';
@@ -18,13 +19,15 @@ const routes: Routes = [
   { path: 'maps', canActivate: [IsAuthenticatedGuard], component: MapComponent },
   { path: 'route', canActivate: [IsAuthenticatedGuard], component: ListComponent },
   { path: 'profile', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
-  { path: 'profile/edit', canActivate: [IsAuthenticatedGuard], component:   UserEditComponent },
+  { path: 'profile/edit', canActivate: [IsAuthenticatedGuard], component: UserEditComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'pois',  canActivate: [IsAuthenticatedGuard], component: PoiCreateComponent },
   { path: 'pois/:id', canActivate: [IsAuthenticatedGuard], component: PoiDetailComponent },
   { path: 'register', component: UserCreateComponent },
-  { path: 'trips/:id', canActivate: [IsAuthenticatedGuard], component: TripDetailComponent }
+  { path: 'trips/:id', canActivate: [IsAuthenticatedGuard], component: TripDetailComponent },
+  { path: 'trips/:id/edit', canActivate: [IsAuthenticatedGuard], component: TripEditComponent }
+
 
   
 ];

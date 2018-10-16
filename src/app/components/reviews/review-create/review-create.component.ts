@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { ActivatedRoute } from '@angular/router';
 import { Review } from './../../../shared/models/review.model';
 import { ReviewService } from './../../../shared/services/review.service';
@@ -13,6 +14,7 @@ export class ReviewCreateComponent implements OnInit {
 
   review: Review = new Review();
   poiId: string;
+  apiError: ApiError;
 
   constructor(private reviewService: ReviewService, private route: ActivatedRoute) { }
 

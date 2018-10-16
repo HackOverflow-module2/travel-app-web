@@ -1,3 +1,4 @@
+import { ApiError } from './../../../shared/models/api-error.model';
 import { Router } from '@angular/router';
 import { Trip } from './../../../shared/models/trip.model';
 import { TripService } from './../../../shared/services/trip.service';
@@ -13,6 +14,8 @@ import { MapService } from '../../../shared/services/map.service';
 export class TripCreateComponent implements OnInit {
 
   @Input() tripPois: Array<Poi> =[];
+  @Input() trip: Trip = new Trip();
+  apiError: ApiError;
 
   constructor(private tripService: TripService, private router: Router) { }
 
