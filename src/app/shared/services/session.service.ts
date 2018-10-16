@@ -57,6 +57,10 @@ export class SessionService extends BaseApiService {
     this.notifyUserChanges();
   }
 
+  getItemLocalStorage(): User {
+    return JSON.parse(localStorage.getItem(SessionService.CURRENT_USER_KEY));
+  }
+
   onUserChanges(): Observable<User> {
     return this.userSubject.asObservable();
   }

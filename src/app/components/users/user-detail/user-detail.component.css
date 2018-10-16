@@ -1,0 +1,23 @@
+img {
+    width: 100%;
+}
+
+.imgRound {
+    width:74px;
+    height:74px;
+    border-radius:37px;
+}
+.profileContainer{
+    height: 100px;
+    border-bottom-color: blue;
+}
+
+.background {
+    background-image: url("https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&h=350");
+    opacity: 0.5;
+    height: 100px;
+
+}
+
+
+

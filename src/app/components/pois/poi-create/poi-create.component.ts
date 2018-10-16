@@ -21,6 +21,7 @@ export class PoiCreateComponent implements OnInit {
   onSubmitCreatePoiForm(poi: Poi): void {
     this.poiService.create(poi)
     .subscribe((poi: Poi) => {
+      debugger;
       this.poiFormComponent.reset();
       this.router.navigate(['/pois', poi.id]);
     })
