@@ -26,17 +26,24 @@ export class TripFormComponent implements OnInit {
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
+    this.trip.originLocation[0] = this.mapService.getOrigin();
+    this.trip.originLocation[1] = this.mapService.getOrigin();
+    this.trip.destinationLocation[0] = this.mapService.getDestination();
+    this.trip.destinationLocation[1] = this.mapService.getDestination();
   }
-
+  
+  onChangeGalleryFile(image: HTMLInputElement): void {
+    if (image.files) {
+      
+      for (let i = 0; i < image.files.length; i++) {
+        this.trip.gallery.push(image.files[i]);
+      }
+    }
+  }
 
   onSubmitTripForm():void {
     if(this.tripForm.valid) {
-      if(!this.inTripEdition) {
-        this.trip.originLocation[0] = this.mapService.origin.lat;
-        this.trip.originLocation[1] = this.mapService.origin.lng;
-        this.trip.destinationLocation[0] = this.mapService.destination.lat;
-        this.trip.destinationLocation[1] = this.mapService.destination.lng;
-      } else {
+      if(this.inTripEdition) {
         this.trip.originLocation[0] = this.origin.lat;
         this.trip.originLocation[1] = this.origin.lng;
         this.trip.destinationLocation[0] = this.destination.lat;
@@ -48,5 +55,7 @@ export class TripFormComponent implements OnInit {
         this.tripSubmit.emit(this.trip);
     }
   }
+
+
 
 }

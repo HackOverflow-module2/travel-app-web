@@ -15,8 +15,8 @@ import { Trip } from '../../../shared/models/trip.model';
 export class ListComponent implements OnInit {
 
 
-  @Input() origin: Coordinates = this.mapService.getOrigin();
-  @Input() destination: Coordinates = this.mapService.getDestination();
+  @Input() origin: number = this.mapService.getOrigin();
+  @Input() destination: number = this.mapService.getDestination();
   @Input() tripPois: Array<Poi> = [];
   @Input() inRoute: boolean = true;
   @Input() inTripEdition: boolean = false;
