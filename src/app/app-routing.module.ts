@@ -17,8 +17,8 @@ const routes: Routes = [
   { path: '', canActivate: [IsAuthenticatedGuard], component: HomeComponent },
   { path: 'maps', canActivate: [IsAuthenticatedGuard], component: MapComponent },
   { path: 'route', canActivate: [IsAuthenticatedGuard], component: ListComponent },
-  { path: 'profile', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
-  { path: 'profile/edit', canActivate: [IsAuthenticatedGuard], component:   UserEditComponent },
+  { path: 'profile/:id', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
+  { path: 'profile/:id/edit', canActivate: [IsAuthenticatedGuard], component:   UserEditComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'pois',  canActivate: [IsAuthenticatedGuard], component: PoiCreateComponent },
