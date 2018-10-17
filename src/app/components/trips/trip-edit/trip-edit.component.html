@@ -1,5 +1,6 @@
 <div *ngIf="trip && origin && destination">
 
-    <app-list [origin]="origin" [destination]="destination" [inRoute]="inRoute" [inTripEdition]="inTripEdition" [trip]="trip" [tripPois]="tripPois" (tripSubmit)="onSubmitCreateTripForm($event)"></app-list>
-  
-</div>
+    <app-list [origin]="origin" [destination]="destination" [inRoute]="inRoute" [inTripEdition]="inTripEdition" [trip]="trip" [tripPois]="tripPois" (emitTripPoi)="addTripPoi($event)"></app-list>
+    <app-trip-form [tripPois]="tripPois" [trip]="trip" [inTripEdition]="inTripEdition" [origin]="origin" [destination]="destination" (tripSubmit)="onSubmitEditTripForm($event)"></app-trip-form>
+
+  </div>

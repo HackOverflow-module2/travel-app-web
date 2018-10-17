@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
   @Input() inRoute: boolean = true;
   @Input() inTripEdition: boolean = false;
   @Input() trip: Trip = new Trip();
+  @Output() emitTripPoi: EventEmitter<Poi> = new EventEmitter();
 
   pois: Array<Poi> = [];
   searchPattern: string;
@@ -33,10 +34,7 @@ export class ListComponent implements OnInit {
 
   constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService) {   }
 
-  ngOnInit() {
-
-    
-    console.log(this.reviewService.reviewsNumber);
+  ngOnInit() { 
     this.poiService.list().subscribe((pois: Array<Poi>) => {
       this.pois = pois;
         this.pois.map(p => {
@@ -53,7 +51,11 @@ export class ListComponent implements OnInit {
   }
 
   onClickAddPoi(poi) {
-    this.tripPois.push(poi);
+    if(!this.inTripEdition) {
+      this.tripPois.push(poi);
+    } else {
+      this.emitTripPoi.emit(poi)
+    }
   }
 
 }

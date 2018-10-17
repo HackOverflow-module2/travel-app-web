@@ -60,9 +60,15 @@ export class TripEditComponent implements OnInit {
     }
   }
 
-  onClickUpdateTrip(trip):void {
-    // this.tripService.edit(this.tripId, trip)
-    // .subscribe((trip: Trip) => this.router.navigate(['trips', trip.id]))
+  onSubmitEditTripForm(trip):void {
+    this.tripService.edit(this.tripId, trip)
+    .subscribe((trip: Trip) => {
+      this.router.navigate(['trips', trip.id])
+    })
+  }
+
+  addTripPoi(poi) {
+    this.tripPois.push(poi);
   }
 
 }
