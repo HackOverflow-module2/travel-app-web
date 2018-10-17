@@ -10,13 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TripListComponent implements OnInit {
 
    @Input() trips: Array<Trip> = [];
+   @Input() inUserProfile: boolean = false;
 
   constructor(private tripService: TripService) { }
 
   ngOnInit() {
     this.tripService.list()
     .subscribe((trips: Array<Trip>) => {
+      if(!this.inUserProfile) {
       this.trips = trips;
+      }
     })
   }
 

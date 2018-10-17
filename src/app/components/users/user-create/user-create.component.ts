@@ -19,8 +19,9 @@ export class UserCreateComponent implements OnInit {
 
   onSubmitCreateUser(registerForm): void {
     if(registerForm.valid) {
-      this.userService.create(this.user).subscribe(()=> {
-        this.router.navigate(['profile', this.user.id])
+      this.userService.create(this.user).subscribe((user: User)=> {
+      this.user = user;
+      this.router.navigate(['profile', this.user.id])
       })
     }
   }

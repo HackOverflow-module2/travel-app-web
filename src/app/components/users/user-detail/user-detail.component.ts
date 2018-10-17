@@ -24,17 +24,16 @@ export class UserDetailComponent implements OnInit {
   constructor(private userService: UserService, private sessionService: SessionService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.user = this.sessionService.getItemLocalStorage();
-    // const userId = this.user.id;
+    this.user = this.sessionService.getItemLocalStorage();
+    const userId = this.user.id;
     
-    // this.route.params.pipe(
-    //   map(params => this.userId = params.id),
-    //   switchMap((userId: string) => this.userService.getUserInfo(userId))
-    //   ).subscribe((userInfo: UserInfo) => {
-    //     debugger;   
-    //     this.userTrips = userInfo.trips;
-    //     this.userPois = userInfo.pois;
-    //   })
+    this.route.params.pipe(
+      map(params => this.userId = params.id),
+      switchMap((userId: string) => this.userService.getUserInfo(userId))
+      ).subscribe((userInfo: UserInfo) => {
+        this.userTrips = userInfo.trips;
+        this.userPois = userInfo.pois;
+      })
       
     
   }
