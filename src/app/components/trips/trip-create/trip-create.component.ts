@@ -13,6 +13,7 @@ import { MapService } from '../../../shared/services/map.service';
 export class TripCreateComponent implements OnInit {
 
   @Input() tripPois: Array<Poi> =[];
+  @Input() trip: Trip = new Trip();
 
   constructor(private tripService: TripService, private router: Router) { }
 

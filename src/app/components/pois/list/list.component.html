@@ -52,14 +52,18 @@
     </div>
   </div>
   
-  <div class="form-wrap">
+  <div class="form-wrap" *ngIf="inRoute">
 
-    <button class="btn btn-primary" (click)="formIsCollapsed = !formIsCollapsed"
-      [attr.aria-expanded]="!formIsCollapsed" aria-controls="formCollapse">Create trip</button>
-    
-    <div id="formCollapse" [ngbCollapse]="!formIsCollapsed" class="mt-3">
-      <app-trip-create [tripPois]="tripPois"></app-trip-create>
+      <button class="btn btn-primary" (click)="formIsCollapsed = !formIsCollapsed"
+        [attr.aria-expanded]="!formIsCollapsed" aria-controls="formCollapse">Create trip</button>
+      
+      <div id="formCollapse" [ngbCollapse]="!formIsCollapsed" class="mt-3">
+        <app-trip-create [tripPois]="tripPois"></app-trip-create>
+      </div>
+  
     </div>
-    
-  </div>
+  
+    <div *ngIf="inTripEdition">
+        <app-trip-form [tripPois]="tripPois" [trip]="trip"></app-trip-form>
+    </div>
 </div>
