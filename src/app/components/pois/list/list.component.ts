@@ -1,3 +1,5 @@
+import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 import { ReviewService } from './../../../shared/services/review.service';
 import { PoiService } from './../../../shared/services/poi.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
@@ -18,7 +20,6 @@ export class ListComponent implements OnInit {
   @Input() origin: number = this.mapService.getOrigin();
   @Input() destination: number = this.mapService.getDestination();
   @Input() tripPois: Array<Poi> = [];
-  @Input() inRoute: boolean = true;
   @Input() inTripEdition: boolean = false;
   @Input() trip: Trip = new Trip();
   @Output() emitTripPoi: EventEmitter<Poi> = new EventEmitter();
@@ -31,10 +32,13 @@ export class ListComponent implements OnInit {
   isCollapsed: boolean;
   filtersIsCollapsed: boolean;
   formIsCollapsed: boolean;
+  action: string;
 
-  constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService) {   }
+  constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService, private route: ActivatedRoute) {   }
   
+
   ngOnInit() {
+    this.getAction();
     this.poiService.list().subscribe((pois: Array<Poi>) => {
       this.pois = pois;
         this.pois.map(p => {
@@ -49,6 +53,14 @@ export class ListComponent implements OnInit {
         })
     });
   }
+
+  getAction() {
+   this.route.url.subscribe(url => {
+    // this.action = url.path
+    })
+  }
+
+
 
   onClickAddPoi(poi) {
     if(!this.inTripEdition) {

@@ -1,4 +1,3 @@
-import { TripCreateComponent } from './../trip-create/trip-create.component';
 import { Router } from '@angular/router';
 import { TripService } from './../../../shared/services/trip.service';
 import { Coordinates } from './../../../shared/models/coordinates.model';
@@ -18,17 +17,15 @@ export class TripFormComponent implements OnInit {
 
   @Input() tripPois: Array<Poi> =[];
   @Input() trip: Trip = new Trip();
-  tripId: string;
   @Input() origin: Coordinates;
   @Input() destination: Coordinates;
+  @Input() action: string;
   @ViewChild('tripForm') tripForm: FormGroup;
 
+  tripId: string;
+  typeOfFunc: string;
   apiError: ApiError;
-  typeOfFunctionality: {
-    
-  }
-  
-  
+
  
  
 
@@ -41,7 +38,28 @@ export class TripFormComponent implements OnInit {
     this.trip.destinationLocation[0] = this.mapService.destination.lat;
     this.trip.destinationLocation[1] = this.mapService.destination.lng;
   }
-  
+
+
+
+  create():void {
+    if(this.tripForm.valid) {
+      this.tripService.create(this.trip)
+      .subscribe((trip: Trip) => {
+    this.router.navigate(['trips', trip.id]);
+      }) 
+    }
+  }
+
+  edit():void {
+    // if(this.tripForm.valid) {
+    //   this.tripService.create(this.trip)
+    //   .subscribe((trip: Trip) => {
+    // this.router.navigate(['trips', trip.id]);
+    //   }) 
+    // }
+  }
+
+ 
   onChangeGalleryFile(image: HTMLInputElement): void {
     if (image.files) {
       
@@ -51,22 +69,17 @@ export class TripFormComponent implements OnInit {
     }
   }
 
-  onSubmitTripCreate():void {
-    if(this.tripForm.valid) {
-        this.tripService.create(this.trip)
-        .subscribe((trip: Trip) => {
-      this.router.navigate(['trips', trip.id]);
-    })
-      
+  getAction(): void {
+    const items = {
+      create: this.create(),
+      edit: this.edit()
     }
+    items[this.typeOfFunc]
   }
 
-  switcher(item): {
-    this.items[item]
+  onSubmitTripCreate():void {
+    // this.getAction(action);
   }
-
-  this.create = item => this.tripService.create(this.trip)
-  this.edit = item => this.tripService.edit(this.tripId, this.trip)
 
 
 

@@ -17,7 +17,7 @@ export class UserService extends BaseApiService{
 
   user: User = null;
   userTrips: Array<Trip>;
-  userPois: Array<Poi>
+  userPois: Array<Poi>;
   allInfo: UserInfo;
 
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;

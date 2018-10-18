@@ -12,6 +12,7 @@ import { User } from '../../../shared/models/user.model';
 export class UserEditComponent implements OnInit {
 
   user: User = new User();
+  apiError;
 
   constructor(private userService: UserService, private sessionService: SessionService, private router: Router) { }
 

@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCreateComponent implements OnInit {
 
-  user: User = new User()
+  user: User = new User();
+  apiError;
 
   constructor(private userService: UserService, private router: Router) { }
 

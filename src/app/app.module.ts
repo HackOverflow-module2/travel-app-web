@@ -9,7 +9,6 @@ import { AgmDirectionModule } from 'agm-direction';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/misc/home/home.component';
-import { MapComponent } from './components/map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ListComponent } from './components/pois/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +21,6 @@ import { ReviewCreateComponent } from './components/reviews/review-create/review
 import { ReviewListComponent } from './components/reviews/review-list/review-list.component';
 import { PoisFilterPipe } from './shared/pipes/pois-filter.pipe';
 import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
-import { TripCreateComponent } from './components/trips/trip-create/trip-create.component';
 import { TripFormComponent } from './components/trips/trip-form/trip-form.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { TripEditComponent } from './components/trips/trip-edit/trip-edit.component';
@@ -34,7 +32,6 @@ import { TripListComponent } from './components/trips/trip-list/trip-list.compon
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    MapComponent,
     ListComponent,
     LoginComponent,
     UserDetailComponent,
@@ -46,7 +43,6 @@ import { TripListComponent } from './components/trips/trip-list/trip-list.compon
     ReviewListComponent,
     PoisFilterPipe,
     PoiRatingFilterPipe,
-    TripCreateComponent,
     TripFormComponent,
     TripDetailComponent,
     UserEditComponent,
