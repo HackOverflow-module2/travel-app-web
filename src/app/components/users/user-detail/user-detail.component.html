@@ -12,7 +12,7 @@
                 </div>
             <div class="row">
                 <div class="col-4">
-                    <p class="badge badge-success mx-3 role m-0 role"><i class="fas fa-star"></i>&nbsp;New traveller</p>
+                    <p class="badge badge-success mx-3 role m-0 role"><i class="fa fa-star"></i>&nbsp;New traveller</p>
                 </div>
                 <div class="col-8">
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mattis luctus semper, cursus vestibulum at sed taciti platea magna molestie.</p>
@@ -34,12 +34,17 @@
     <div class="container my-3">
         <div class="row">
             <div class="col">
-                <h3>Your Trips</h3>
-                xxx
+                <button type="button" class="profileButton" (click)="onClickShowTrips()">Your Trips</button>
+                <div *ngIf="showTrips">
+                    <app-trip-list [trips]="userTrips" [inUserProfile]="inUserProfile"></app-trip-list>
+                </div>
             </div>
+                <div class="col">
             <div class="col">
-                <h3>Your Pois</h3>
-                xxx
+                <button type="button" class="profileButton" (click)="onClickShowPois()">Your Pois</button>
+                <div *ngIf="showTrips"></div>
+                    <app-poi-list-text [pois]="userPois" [inUserProfile]="inUserProfile"></app-poi-list-text>
+                </div>
             </div>
         </div>
     

@@ -30,7 +30,7 @@ export class UserEditComponent implements OnInit {
     if(editForm.valid) {
       const userId = this.user.id;
       this.userService.edit(userId, this.user).subscribe((user: User) => {
-        this.router.navigate(['/profile'])
+        this.router.navigate(['/profile', this.user.id])
       })
     }
 

@@ -26,6 +26,8 @@ import { TripCreateComponent } from './components/trips/trip-create/trip-create.
 import { TripFormComponent } from './components/trips/trip-form/trip-form.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { TripEditComponent } from './components/trips/trip-edit/trip-edit.component';
+import { PoiListTextComponent } from './components/pois/poi-list-text/poi-list-text.component';
+import { TripListComponent } from './components/trips/trip-list/trip-list.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { TripEditComponent } from './components/trips/trip-edit/trip-edit.compon
     TripFormComponent,
     TripDetailComponent,
     UserEditComponent,
-    TripEditComponent
+    TripEditComponent,
+    TripListComponent,
+    PoiListTextComponent
   ],
   imports: [
     BrowserModule,
