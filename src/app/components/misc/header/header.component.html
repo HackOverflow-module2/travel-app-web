@@ -15,7 +15,7 @@
         <div class="dropdown-menu bg-dark" ngbDropdownMenu aria-labelledby="menuDropdown">
           <ul class="dropdown-nav">
             <li class="nav-item" (click)="isNavbarCollapsed = !isNavbarCollapsed">
-              <a class="dropdown-item nav-link" [routerLink]="['/profile']" >
+              <a class="dropdown-item nav-link" [routerLink]="['profile', user.id]">
                 My profile
               </a>
             </li>
@@ -37,7 +37,7 @@
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>
       <li class="nav-item" *ngIf="!user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
-        <a class="nav-link" [routerLink]="['/users']">Register</a>
+        <a class="nav-link" [routerLink]="['/register']">Register</a>
       </li>
       <li class="nav-item" *ngIf="user" (click)="isNavbarCollapsed = !isNavbarCollapsed">
         <button class="nav-link btn btn-link" (click)="onClickLogout()">Logout</button>

@@ -13,11 +13,15 @@ img {
 }
 
 .background {
-    background-image: url("https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&h=350");
+    background-color: pink;
     opacity: 0.5;
     height: 100px;
 
 }
 
+.profileButton {
+    font-size: 20px;
+    color: pink;
+}
 
 

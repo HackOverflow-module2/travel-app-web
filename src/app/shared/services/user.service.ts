@@ -1,3 +1,6 @@
+import { UserInfo } from './../models/user-info.model';
+import { Poi } from './../models/poi.model';
+import { Trip } from './../models/trip.model';
 import { map, catchError } from 'rxjs/operators';
 import { ApiError } from './../models/api-error.model';
 import { BaseApiService } from './base-api.service';
@@ -12,7 +15,10 @@ import { Injectable } from '@angular/core';
 })
 export class UserService extends BaseApiService{
 
-  user: User = new User();
+  user: User = null;
+  userTrips: Array<Trip>;
+  userPois: Array<Poi>
+  allInfo: UserInfo;
 
   private static readonly USER_API = `${BaseApiService.BASE_API}/users`;
   private static readonly CURRENT_USER_KEY = 'current-user';
@@ -21,13 +27,28 @@ export class UserService extends BaseApiService{
     super();
   }
 
+
+
+  getUserInfo(userId): Observable <UserInfo | ApiError> {
+    return this.http.get<UserInfo>(`${UserService.USER_API}/${userId}`, BaseApiService.defaultOptions)
+      .pipe(
+        map((userInfo: UserInfo) => {
+          this.user = userInfo.user;
+          this.userPois = userInfo.pois.map(poi => Object.assign(new Poi(), poi))
+          this.userTrips = userInfo.trips.map(trip => Object.assign(new Trip(), trip))
+          return userInfo;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+
   create(user: User): Observable<User | ApiError> {
     return this.http.post<User>(UserService.USER_API, user, BaseApiService.defaultOptions)
       .pipe(
         map((user: User) => {
         Object.assign(new User(), user)
-        this.user = user;
-        return user;
+        return this.user = user;
         }),
         catchError(this.handleError)
       );

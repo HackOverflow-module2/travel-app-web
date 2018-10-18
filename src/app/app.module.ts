@@ -25,6 +25,8 @@ import { PoiRatingFilterPipe } from './shared/pipes/poi-rating-filter.pipe';
 import { TripCreateComponent } from './components/trips/trip-create/trip-create.component';
 import { TripFormComponent } from './components/trips/trip-form/trip-form.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { TripListComponent } from './components/trips/trip-list/trip-list.component';
+import { PoiListTextComponent } from './components/pois/poi-list-text/poi-list-text.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
     TripCreateComponent,
     TripFormComponent,
     TripDetailComponent,
-    UserEditComponent
+    UserEditComponent,
+    TripListComponent,
+    PoiListTextComponent
   ],
   imports: [
     BrowserModule,
