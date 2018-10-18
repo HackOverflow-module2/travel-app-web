@@ -24,9 +24,6 @@ export class ListComponent implements OnInit {
   constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService) {   }
 
   ngOnInit() {
-
-    
-    console.log(this.reviewService.reviewsNumber);
     this.poiService.list().subscribe((pois: Array<Poi>) => {
       this.pois = pois;
         this.pois.map(p => {

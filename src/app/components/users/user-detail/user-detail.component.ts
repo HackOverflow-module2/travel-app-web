@@ -20,6 +20,7 @@ export class UserDetailComponent implements OnInit {
   userId: string;
   userTrips: Array<Trip>;
   userPois: Array<Poi>;
+  inUserProfile: boolean = true;
   
   constructor(private userService: UserService, private sessionService: SessionService, private route: ActivatedRoute) { }
 
