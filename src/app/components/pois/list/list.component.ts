@@ -1,6 +1,7 @@
+import { Router } from '@angular/router';
 import { ReviewService } from './../../../shared/services/review.service';
 import { PoiService } from './../../../shared/services/poi.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MapService } from '../../../shared/services/map.service';
 import { Coordinates } from '../../../shared/models/coordinates.model';
 import { Poi } from '../../../shared/models/poi.model';
@@ -13,6 +14,8 @@ import { Review } from '../../../shared/models/review.model';
 })
 export class ListComponent implements OnInit {
 
+  @Input() inTrip: boolean = false;
+  
   origin: Coordinates = this.mapService.getOrigin();
   destination: Coordinates = this.mapService.getDestination();
   pois: Array<Poi> = [];
@@ -21,8 +24,10 @@ export class ListComponent implements OnInit {
   searchPatternRating: number;
 
 
-  constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService) {   }
 
+  constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService, private router:Router) {   }
+
+  
   ngOnInit() {
     this.poiService.list().subscribe((pois: Array<Poi>) => {
       this.pois = pois;
@@ -39,8 +44,15 @@ export class ListComponent implements OnInit {
     });
   }
 
+
+
   onClickAddPoi(poi) {
-    this.tripPois.push(poi);
+    if(this.inTrip) {
+         this.tripPois.push(poi);
+    } else {
+      this.router.navigate(['pois', poi.id])
+    }
+
   }
 
 }

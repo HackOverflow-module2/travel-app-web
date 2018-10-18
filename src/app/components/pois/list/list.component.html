@@ -54,7 +54,7 @@
   
   <div class="form-wrap">
 
-    <button class="btn btn-primary" (click)="formIsCollapsed = !formIsCollapsed"
+    <button class="btn btn-primary" (click)="formIsCollapsed = !formIsCollapsed && inTrip=true"
       [attr.aria-expanded]="!formIsCollapsed" aria-controls="formCollapse">Create trip</button>
     
     <div id="formCollapse" [ngbCollapse]="!formIsCollapsed" class="mt-3">
