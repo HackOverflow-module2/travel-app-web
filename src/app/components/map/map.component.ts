@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
   title: String = 'My first AGM project';
-  marta: Number = 40.4168;
+  lat: Number = 40.4168;
   lng: Number = 3.7038;
 
   constructor() { }

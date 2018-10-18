@@ -1,15 +1,17 @@
+<agm-map [latitude]="poi.location[0]" [longitude]="poi.location[1]">
+    <agm-marker [latitude]="poi.location[0]" [longitude]="poi.location[1]"></agm-marker>
+</agm-map>
+
 <div class="container my-3">
 
-  <p>
+  <h2>
     {{poi.name}}
-  </p>
+  </h2>
 
-  <p>
-    {{poi.location}}
-  </p>
-
-  <div *ngFor="let image of poi.gallery" >
-    <img [src]="image">
+  <div class="row" >
+    <div class="col-6 mb-2" *ngFor="let image of poi.gallery">
+        <img [src]="image">
+    </div>
   </div>
 
   <p>
