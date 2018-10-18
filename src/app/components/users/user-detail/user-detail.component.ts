@@ -21,6 +21,8 @@ export class UserDetailComponent implements OnInit {
   userTrips: Array<Trip> = [];
   userPois: Array<Poi> =[];
   inUserProfile: boolean = true;
+  showTrips: boolean = true;
+  showPois: boolean = false;
   
   constructor(private userService: UserService, private sessionService: SessionService, private route: ActivatedRoute) { }
 
@@ -35,9 +37,17 @@ export class UserDetailComponent implements OnInit {
         this.userTrips = userInfo.trips;
         this.userPois = userInfo.pois;
       })
-      
-    
   }
+
+  onClickShowTrips(): void {
+    this.showTrips = true;
+    this.showPois = false;
+  }
+  onClickShowPois(): void {
+    this.showPois = true;
+    this.showTrips = false;
+  }
+
 
 
 }
