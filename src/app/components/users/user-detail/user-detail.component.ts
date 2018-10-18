@@ -18,8 +18,8 @@ export class UserDetailComponent implements OnInit {
 
   user: User = new User();
   userId: string;
-  userTrips: Array<Trip>;
-  userPois: Array<Poi>;
+  userTrips: Array<Trip> = [];
+  userPois: Array<Poi> =[];
   inUserProfile: boolean = true;
   
   constructor(private userService: UserService, private sessionService: SessionService, private route: ActivatedRoute) { }
