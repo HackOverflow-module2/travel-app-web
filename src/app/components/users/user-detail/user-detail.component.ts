@@ -40,6 +40,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   onClickShowTrips(): void {
+    debugger;
     this.showTrips = true;
     this.showPois = false;
   }
