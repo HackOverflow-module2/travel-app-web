@@ -16,6 +16,9 @@ export class TripFormComponent implements OnInit {
   @ViewChild('tripForm') tripForm: FormGroup;
   @Output() tripSubmit: EventEmitter<Trip> = new EventEmitter();
 
+  apiError;
+
+
 
   constructor(private mapService: MapService) { }
 
