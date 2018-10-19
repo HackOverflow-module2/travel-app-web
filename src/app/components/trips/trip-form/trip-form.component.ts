@@ -1,3 +1,4 @@
+import { Poi } from './../../../shared/models/poi.model';
 import { Router } from '@angular/router';
 import { TripService } from './../../../shared/services/trip.service';
 import { Coordinates } from './../../../shared/models/coordinates.model';
@@ -6,7 +7,7 @@ import { MapService } from './../../../shared/services/map.service';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core';
 import { Trip } from '../../../shared/models/trip.model';
-import { Poi } from '../../../shared/models/poi.model';
+
 
 @Component({
   selector: 'app-trip-form',
@@ -17,47 +18,48 @@ export class TripFormComponent implements OnInit {
 
   @Input() tripPois: Array<Poi> =[];
   @Input() trip: Trip = new Trip();
-  @Input() origin: Coordinates;
-  @Input() destination: Coordinates;
   @Input() action: string;
+  @Input() tripId: string;
   @ViewChild('tripForm') tripForm: FormGroup;
 
-  tripId: string;
-  typeOfFunc: string;
+  typeOfFunction;
   apiError: ApiError;
 
- 
  
 
 
   constructor(private mapService: MapService, private router: Router, private tripService: TripService) { }
 
   ngOnInit() {
-    this.trip.originLocation[0] = this.mapService.origin.lat;
-    this.trip.originLocation[1] = this.mapService.origin.lng;
-    this.trip.destinationLocation[0] = this.mapService.destination.lat;
-    this.trip.destinationLocation[1] = this.mapService.destination.lng;
+    if(this.action === 'route') {
+      this.trip.originLocation[0] = this.mapService.origin.lat;
+      this.trip.originLocation[1] = this.mapService.origin.lng;
+      this.trip.destinationLocation[0] = this.mapService.destination.lat;
+      this.trip.destinationLocation[1] = this.mapService.destination.lng;
+    }
   }
 
 
 
   create():void {
     if(this.tripForm.valid) {
-      this.tripService.create(this.trip)
+    this.addPois()
+    this.tripService.create(this.trip)
       .subscribe((trip: Trip) => {
     this.router.navigate(['trips', trip.id]);
       }) 
     }
   }
 
+
   edit():void {
-    // if(this.tripForm.valid) {
-    //   this.tripService.create(this.trip)
-    //   .subscribe((trip: Trip) => {
-    // this.router.navigate(['trips', trip.id]);
-    //   }) 
-    // }
+    this.addPois()
+    this.tripService.edit(this.tripId, this.trip)
+    .subscribe((trip: Trip) => {
+      this.router.navigate(['trips', trip.id])
+    })
   }
+
 
  
   onChangeGalleryFile(image: HTMLInputElement): void {
@@ -70,15 +72,20 @@ export class TripFormComponent implements OnInit {
   }
 
   getAction(): void {
-    const items = {
-      create: this.create(),
-      edit: this.edit()
-    }
-    items[this.typeOfFunc]
+    if(this.action ==='route') {
+     this.create();
+    } else {
+      this.edit();
+    } 
+  }
+
+  addPois() {
+    const tripPoiId = this.tripPois.map(tripPoi => tripPoi.id);
+    this.trip.pois = tripPoiId;
   }
 
   onSubmitTripCreate():void {
-    // this.getAction(action);
+    this.getAction();
   }
 
 

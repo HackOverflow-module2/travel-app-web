@@ -17,7 +17,7 @@ export class Poi {
     const data = new FormData();
 
     for (const location of this.location) {
-      data.append('location', location.toString());
+    data.append('location', location.toString());
     }
     data.append('poiType', this.poiType);
     data.append('name', this.name);

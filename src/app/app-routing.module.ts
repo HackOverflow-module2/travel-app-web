@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'pois/:id', canActivate: [IsAuthenticatedGuard], component: PoiDetailComponent },
   { path: 'register', component: UserCreateComponent },
   { path: 'trips/:id', canActivate: [IsAuthenticatedGuard], component: TripDetailComponent },
-  { path: 'trips/:id/edit', canActivate: [IsAuthenticatedGuard], component: TripEditComponent }
+  { path: 'trips/:id/edit', canActivate: [IsAuthenticatedGuard], component: ListComponent }
 
   
 ];

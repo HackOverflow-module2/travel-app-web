@@ -54,14 +54,27 @@
   
   <div class="form-wrap">
 
-      <button class="btn btn-primary" (click)="formIsCollapsed = !formIsCollapsed"
+    <div *ngIf="action === 'route'">
+      <button class="btn btn-primary" (click)="onClickInTripEdition()"
         [attr.aria-expanded]="!formIsCollapsed" aria-controls="formCollapse">Create trip</button>
-      
-      <div id="formCollapse" [ngbCollapse]="!formIsCollapsed" class="mt-3">
-        <app-trip-form [tripPois]="tripPois" [action]="action"></app-trip-form>
-      </div>
-  
+    </div>  
+    <div id="formCollapse" [ngbCollapse]="!formIsCollapsed" class="mt-3">
+      <app-trip-form [tripPois]="tripPois" [action]="action" [trip] ="trip" [tripId]="tripId"></app-trip-form>
+    </div>
+
+    </div>  
+
+    <div *ngIf="action !== 'route'">
+        <app-trip-form [tripPois]="tripPois" [action]="action" [trip] ="trip" [tripId]="tripId"></app-trip-form>
     </div>
   
+
+  <div class="form-wrap">
+      <button class="btn btn-primary" (click)="onClickInShowPois()"
+        [attr.aria-expanded]="!formIsCollapsed" aria-controls="formCollapse">Create poi</button>
+      <div id="formCollapse" [ngbCollapse]="!formIsCollapsed" class="mt-3">
+        <app-poi-list-text></app-poi-list-text>
+      </div>
+  </div>
 
 </div>

@@ -12,6 +12,9 @@ import { PoiFormComponent } from '../poi-form/poi-form.component';
 export class PoiCreateComponent implements OnInit {
 
   @ViewChild(PoiFormComponent) poiFormComponent: PoiFormComponent;
+  poi: Poi = new Poi();
+
+  apiError;
 
   constructor(private poiService: PoiService, private router: Router) { }
 
@@ -27,3 +30,4 @@ export class PoiCreateComponent implements OnInit {
 
   }
 }
+
