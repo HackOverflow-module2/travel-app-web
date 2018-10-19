@@ -77,6 +77,7 @@ export class ListComponent implements OnInit {
     }
 
     if(this.action !== 'route') {
+      this.getTrip();
       this.origin = {
         lat: this.trip.originLocation[0], 
         lng: this.trip.originLocation[1]

@@ -26,6 +26,8 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
 import { TripEditComponent } from './components/trips/trip-edit/trip-edit.component';
 import { PoiListTextComponent } from './components/pois/poi-list-text/poi-list-text.component';
 import { TripListComponent } from './components/trips/trip-list/trip-list.component';
+import { environment } from './../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +58,7 @@ import { TripListComponent } from './components/trips/trip-list/trip-list.compon
     NgbModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAEkL-jlLHB19M2VVbD52QgO2VkeMERovI',
+      apiKey: environment.mapApi,
       libraries: ['places']
     }),
     AgmDirectionModule,

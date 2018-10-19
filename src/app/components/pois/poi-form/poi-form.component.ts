@@ -17,7 +17,7 @@ export class PoiFormComponent implements OnInit {
   @ViewChild('poiForm') poiForm: FormGroup;
   @ViewChild('location') public  searchElement: ElementRef;
 
-  apiError
+  apiError;
 
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mapService: MapService) { }
 

@@ -30,7 +30,7 @@ export class TripService extends BaseApiService {
   get(tripId): Observable<Trip | ApiError> {
     return this.http.get<Trip>(`${TripService.TRIP_API}/${tripId}`, BaseApiService.defaultOptions)
       .pipe(
-        map((trip: Trip) => Object.assign(new Trip(), trip)),
+        map((trip: Trip) =>  Object.assign(new Trip(), trip)),
         catchError(this.handleError)
       );
   }
