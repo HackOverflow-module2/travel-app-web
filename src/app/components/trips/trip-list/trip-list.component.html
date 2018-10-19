@@ -1,3 +1,6 @@
 <div *ngFor="let trip of trips">
-  {{ trip.name }}
+  <p>{{ trip.name }}</p>
+  <div *ngIf="trip.gallery.length > 1">
+    <img  [src]="trip.gallery[0]">
+  </div>
 </div>

@@ -2,4 +2,7 @@
   <p>
     {{ poi.name }}
   </p>
+  <div *ngIf="poi.gallery.length > 1">
+    <img  [src]="poi.gallery[0]">
+  </div>
 </div>

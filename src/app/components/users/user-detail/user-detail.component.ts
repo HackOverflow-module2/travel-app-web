@@ -12,7 +12,7 @@ import { UserInfo } from '../../../shared/models/user-info.model';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  styleUrls: ['./user-detail.component.less']
 })
 export class UserDetailComponent implements OnInit {
 
