@@ -77,7 +77,6 @@ export class ListComponent implements OnInit {
     }
 
     if(this.action !== 'route') {
-      this.getTrip();
       this.origin = {
         lat: this.trip.originLocation[0], 
         lng: this.trip.originLocation[1]
@@ -103,7 +102,6 @@ export class ListComponent implements OnInit {
         switchMap(tripId => this.tripService.get(tripId))
       ).subscribe((trip: Trip) => {
         this.trip = trip
-        this.getCoordinates();
         this.getTripPois();
       })
   }

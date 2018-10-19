@@ -1,14 +1,15 @@
-
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction [origin]="origin" [destination]="destination">
-  </agm-direction>
-<div *ngFor="let poi of pois | poisFilter:searchPattern | poiRatingFilter:searchPatternRating">
-  <agm-marker *ngIf="poi.location.length === 2"
-    [latitude]="poi.location[0]" [longitude]="poi.location[1]" (markerClick)="onClickAddPoi(poi)"  [ngbCollapse]="!formIsCollapsed"></agm-marker>
+<div *ngIf="origin==='route'">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-direction [origin]="origin" [destination]="destination">
+    </agm-direction>
+  <div *ngFor="let poi of pois | poisFilter:searchPattern | poiRatingFilter:searchPatternRating">
+    <agm-marker *ngIf="poi.location.length === 2"
+      [latitude]="poi.location[0]" [longitude]="poi.location[1]" (markerClick)="onClickAddPoi(poi)"  [ngbCollapse]="!formIsCollapsed"></agm-marker>
+  </div>
+  </agm-map>
 </div>
-</agm-map>
-
 <div class="container my-3">
+    <div *ngIf="origin==='route'">
 
   <div class="filters-wrap my-3 card">
     <div class="card-header" (click)="filtersIsCollapsed = !filtersIsCollapsed"
@@ -51,6 +52,7 @@
       </div>
 
     </div>
+  </div>
   </div>
   
   <div class="form-wrap">
