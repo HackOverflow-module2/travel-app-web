@@ -1,9 +1,12 @@
-<div class="container mx-auto my-3" *ngFor="let review of reviews">
+<div *ngFor="let review of reviews">
     <div class="card">
       <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
           <div class="">
             {{ review.title }}
+            <span>
+                <ngb-rating rate="{{review.rating}}" type="number" name="rating" max="5"></ngb-rating>
+            </span> 
           </div>
         </div>
       </div>
