@@ -75,18 +75,6 @@ export class ListComponent implements OnInit {
       this.origin = this.mapService.getOrigin();
       this.destination = this.mapService.getDestination();
     }
-
-    if(this.action !== 'route') {
-      this.origin = {
-        lat: this.trip.originLocation[0], 
-        lng: this.trip.originLocation[1]
-      }
-      this.destination = {
-        lat: this.trip.destinationLocation[0], 
-        lng: this.trip.destinationLocation[1]
-      }
-    }
-
   }
 
   getTripPois(): void {
@@ -97,15 +85,22 @@ export class ListComponent implements OnInit {
   }
 
   getTrip():void {
-      this.route.params.pipe(
-        map(params => this.tripId = params.id),
-        switchMap(tripId => this.tripService.get(tripId))
+    this.route.params.pipe(
+      map(params => this.tripId = params.id),
+      switchMap(tripId => this.tripService.get(tripId))
       ).subscribe((trip: Trip) => {
         this.trip = trip
+        this.origin = {
+          lat: this.trip.originLocation[0],
+          lng: this.trip.originLocation[1]
+        }
+        this.destination = {
+          lat: this.trip.destinationLocation[0],
+          lng: this.trip.destinationLocation[1]
+        }
         this.getTripPois();
-      })
-  }
-
+        })
+    }
 
   onClickInTripEdition() {
     this.formIsCollapsed = !this.formIsCollapsed

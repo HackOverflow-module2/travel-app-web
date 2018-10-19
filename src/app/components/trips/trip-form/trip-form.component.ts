@@ -43,14 +43,17 @@ export class TripFormComponent implements OnInit {
 
   create():void {
     if(this.tripForm.valid) {
-    this.addPois()
-    this.tripService.create(this.trip)
-      .subscribe((trip: Trip) => {
-    this.router.navigate(['trips', trip.id]);
-      }) 
+      this.addPois()
+      this.trip.originLocation[0] = this.mapService.origin.lat;
+      this.trip.originLocation[1] = this.mapService.origin.lng;
+      this.trip.destinationLocation[0] = this.mapService.destination.lat;
+      this.trip.destinationLocation[1] = this.mapService.destination.lng;
+      this.tripService.create(this.trip)
+        .subscribe((trip: Trip) => {
+        this.router.navigate(['trips', trip.id]);
+      })
     }
   }
-
 
   edit():void {
     this.addPois()

@@ -1,4 +1,3 @@
-<div *ngIf="origin==='route'">
   <agm-map [latitude]="lat" [longitude]="lng">
     <agm-direction [origin]="origin" [destination]="destination">
     </agm-direction>
@@ -7,10 +6,10 @@
       [latitude]="poi.location[0]" [longitude]="poi.location[1]" (markerClick)="onClickAddPoi(poi)"  [ngbCollapse]="!formIsCollapsed"></agm-marker>
   </div>
   </agm-map>
-</div>
-<div class="container my-3">
-    <div *ngIf="origin==='route'">
 
+  <div class="container my-3">
+
+    
   <div class="filters-wrap my-3 card">
     <div class="card-header" (click)="filtersIsCollapsed = !filtersIsCollapsed"
     [attr.aria-expanded]="!isCollapsed" aria-controls="filtersIsCollapsed">
@@ -52,7 +51,6 @@
       </div>
 
     </div>
-  </div>
   </div>
   
   <div class="form-wrap">
