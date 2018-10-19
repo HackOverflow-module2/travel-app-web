@@ -7,7 +7,6 @@ import { UserDetailComponent } from './components/users/user-detail/user-detail.
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/misc/home/home.component';
-import { MapComponent } from './components/map/map.component';
 import { ListComponent } from './components/pois/list/list.component';
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
 import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
@@ -15,7 +14,6 @@ import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 
 const routes: Routes = [
   { path: '', canActivate: [IsAuthenticatedGuard], component: HomeComponent },
-  { path: 'maps', canActivate: [IsAuthenticatedGuard], component: MapComponent },
   { path: 'route', canActivate: [IsAuthenticatedGuard], component: ListComponent },
   { path: 'profile/:id', canActivate: [IsAuthenticatedGuard], component: UserDetailComponent  },
   { path: 'profile/:id/edit', canActivate: [IsAuthenticatedGuard], component:   UserEditComponent },

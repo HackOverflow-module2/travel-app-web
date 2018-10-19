@@ -14,6 +14,9 @@ export class ReviewCreateComponent implements OnInit {
   review: Review = new Review();
   poiId: string;
 
+  apiError;
+
+
   constructor(private reviewService: ReviewService, private route: ActivatedRoute) { }
 
   ngOnInit() {

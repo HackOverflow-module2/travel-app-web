@@ -13,6 +13,8 @@ export class PoiCreateComponent implements OnInit {
 
   @ViewChild(PoiFormComponent) poiFormComponent: PoiFormComponent;
 
+  apiError;
+
   constructor(private poiService: PoiService, private router: Router) { }
 
   ngOnInit() {

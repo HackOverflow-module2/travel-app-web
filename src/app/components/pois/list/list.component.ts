@@ -19,6 +19,11 @@ export class ListComponent implements OnInit {
   tripPois: Array<Poi> = [];
   searchPattern: string;
   searchPatternRating: number;
+  lat;
+  lng;
+  isCollapsed;
+  filtersIsCollapsed;
+  formIsCollapsed;
 
 
   constructor(private mapService: MapService, private poiService: PoiService, private reviewService: ReviewService) {   }

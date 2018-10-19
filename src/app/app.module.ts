@@ -9,7 +9,6 @@ import { AgmDirectionModule } from 'agm-direction';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/misc/home/home.component';
-import { MapComponent } from './components/map/map.component';
 import { FormsModule } from '@angular/forms';
 import { ListComponent } from './components/pois/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,7 +34,6 @@ import { environment } from './../environments/environment';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    MapComponent,
     ListComponent,
     LoginComponent,
     UserDetailComponent,
