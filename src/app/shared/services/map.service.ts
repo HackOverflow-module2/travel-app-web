@@ -76,10 +76,10 @@ export class MapService {
     localStorage.setItem(pointKey, JSON.stringify(pointValue));
   }
 
-  getOrigin(): Coordinates {
+  getOrigin(): number {
     return JSON.parse(localStorage.getItem(MapService.ORIGIN_KEY));
   }
 
-  getDestination(){
+  getDestination(): number {
     return JSON.parse(localStorage.getItem(MapService.DESTINATION_KEY));  }
 }

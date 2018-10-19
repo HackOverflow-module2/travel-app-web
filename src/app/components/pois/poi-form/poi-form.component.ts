@@ -19,7 +19,6 @@ export class PoiFormComponent implements OnInit {
 
   apiError;
 
-
   constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mapService: MapService) { }
 
   ngOnInit() {
