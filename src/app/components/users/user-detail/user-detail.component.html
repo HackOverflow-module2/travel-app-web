@@ -29,14 +29,14 @@
         <div class="tabs-container">
 
             <ngb-tabset>
-                <ngb-tab title="My trips">
-                    <ng-template ngbTabContent>
+                <ngb-tab title="My trips" (click)="onClickShowTrips()">
+                    <ng-template ngbTabContent >
                             <div *ngIf="showTrips" class="tab-padding">
                                 <app-trip-list [trips]="userTrips" [inUserProfile]="inUserProfile"></app-trip-list>
                             </div>
                     </ng-template>
                 </ngb-tab>
-                <ngb-tab title="My pois">
+                <ngb-tab title="My pois" (click)="onClickShowPois()">
                     <ng-template ngbTabContent>
                         <div *ngIf="showTrips" class="tab-padding">
                             <app-poi-list-text [pois]="userPois" [inUserProfile]="inUserProfile"></app-poi-list-text>
