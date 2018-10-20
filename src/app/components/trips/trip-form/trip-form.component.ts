@@ -49,8 +49,8 @@ export class TripFormComponent implements OnInit {
       this.trip.destinationLocation[0] = this.mapService.destination.lat;
       this.trip.destinationLocation[1] = this.mapService.destination.lng;
       this.tripService.create(this.trip)
-        .subscribe((trip: Trip) => {
-        this.router.navigate(['trips', trip.id]);
+      .subscribe((trip: Trip) => {
+      this.router.navigate(['trips', trip.id]);
       })
     }
   }

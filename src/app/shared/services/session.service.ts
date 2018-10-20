@@ -16,7 +16,7 @@ export class SessionService extends BaseApiService {
   private static readonly SESSIONS_API = `${BaseApiService.BASE_API}/sessions`;
   private static readonly CURRENT_USER_KEY = 'current-user';
 
-  user: User = null;
+  user: User;
   userSubject: Subject<User> = new Subject();
 
   constructor(private http: HttpClient) {
