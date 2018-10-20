@@ -1,6 +1,11 @@
 <div class="row mb-5">
   <div class="col-12">
-    <h4>Create your trip</h4>
+    <div *ngIf="action==='route'">
+      <h4>Create your trip</h4>
+    </div>
+    <div *ngIf="action!=='route'">
+        <h4>Edit your trip</h4>
+    </div>
     <form (ngSubmit)="onSubmitTripCreate()" #tripForm="ngForm">
 
       <div class="input-group sm-card mb-2">

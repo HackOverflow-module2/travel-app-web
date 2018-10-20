@@ -100,6 +100,7 @@ export class ListComponent implements OnInit {
           lng: this.trip.destinationLocation[1]
         }
         this.getTripPois();
+        this.pois = this.tripPois;
         })
     }
 
