@@ -9,7 +9,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form> -->
-<div class="container my-3">
+<div id="hero">
+<div class="container my-3 home-container">
   <h2>
       Login
   </h2>
@@ -18,7 +19,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
       </div>
-      <input type="email" class="form-control" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }"
+      <input type="email" class="form-control" autocorrect="off" autocapitalize="off" spellcheck="off" [ngClass]="{ 'is-invalid': apiError || email.errors && email.touched }"
         placeholder="Email" name="email" [(ngModel)]="user.email" #email="ngModel" required email>
       <div class="invalid-feedback" *ngIf="email.errors && email.touched && email.errors.required">
         Please chose an email.
@@ -31,7 +32,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
       </div>
-      <input type="password" class="form-control" [ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }"
+      <input type="password" class="form-control" autocorrect="off" autocapitalize="off" spellcheck="off" [ngClass]="{ 'is-invalid': apiError || password.errors && password.touched }"
         placeholder="password" name="password" [(ngModel)]="user.password" #password="ngModel" required>
       <div class="invalid-feedback" *ngIf="password.errors && password.touched && password.errors.required">
         Please enter your password.
@@ -44,5 +45,8 @@
       <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Login</button>
     </div>
   </form>
+  <div class="linkContainer">
+    <a [routerLink]="['/register']">Go to register</a>
+  </div>
 </div>
-
+</div>
