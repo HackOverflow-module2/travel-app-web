@@ -1,3 +1,4 @@
+ <div *ngIf="origin && destination">
   <agm-map [latitude]="lat" [longitude]="lng">
     <agm-direction [origin]="origin" [destination]="destination">
     </agm-direction>
@@ -55,10 +56,10 @@
   
   <div class="form-wrap">
 
-
+    <div *ngIf="action === 'route'" style="display:inline-block">
     <button class="btn btn-primary mr-2" (click)="onClickInShowPois()"
       [attr.aria-expanded]="!poiIsCollapsed" aria-controls="poiCollapse" >List poi</button>
-  
+    </div>
 
     <div *ngIf="action === 'route'" style="display:inline-block">
       <button class="btn btn-primary" (click)="onClickInTripEdition()"
@@ -82,3 +83,4 @@
       </div>
 
 </div>
+</div> 
