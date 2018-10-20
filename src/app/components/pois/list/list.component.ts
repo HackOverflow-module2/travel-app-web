@@ -30,6 +30,7 @@ export class ListComponent implements OnInit {
   isCollapsed: boolean;
   filtersIsCollapsed: boolean;
   formIsCollapsed: boolean;
+  poiIsCollapsed: boolean;
   tripId: string;
   inTripEdition: boolean = false;
 
@@ -104,11 +105,13 @@ export class ListComponent implements OnInit {
 
   onClickInTripEdition() {
     this.formIsCollapsed = !this.formIsCollapsed
+    this.poiIsCollapsed = this.poiIsCollapsed
     this.inTripEdition = true;
   }
 
   onClickInShowPois() {
-    this.formIsCollapsed = !this.formIsCollapsed
+    this.poiIsCollapsed = !this.poiIsCollapsed
+    this.formIsCollapsed = this.formIsCollapsed
     this.inTripEdition = false;
   }
 

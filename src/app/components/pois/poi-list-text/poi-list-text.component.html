@@ -1,14 +1,16 @@
 
-<div class="my-3">
-
-    <div class="row smaller-row">
-      <div *ngFor="let poi of pois" class="gallery-list col-6">
-        <div class="gallery-inner"  *ngIf="poi.gallery.length > 0" [ngStyle]="{'background-image': 'url(' + poi.gallery[0] + ')'}">
-            <h5>
-              {{ poi.name }}
-            </h5>
+<div class="container">
+    <div class="my-3">
+        <h2>Pois</h2>
+        <div class="row smaller-row">
+          <div *ngFor="let poi of pois" class="gallery-list col-6">
+            <div class="gallery-inner"  *ngIf="poi.gallery.length > 0" [ngStyle]="{'background-image': 'url(' + poi.gallery[0] + ')'}">
+                <h5>
+                  {{ poi.name }}
+                </h5>
+            </div>
+          
+          </div>
         </div>
-      
       </div>
-    </div>
-  </div>
+</div>

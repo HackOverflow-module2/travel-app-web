@@ -7,9 +7,7 @@
   <div class="card-body">
     <p class="card-text">{{trip.description}}</p>
     <!-- <button class="card-link">See POIs</button> -->
-    <div *ngIf="trip.user===user">
       <a [routerLink]="['edit']" class="card-link">Edit Trip</a>
-    </div>
   </div>
 
   <div class="row" >
