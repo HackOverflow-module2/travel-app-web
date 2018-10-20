@@ -28,6 +28,12 @@
       </div>
       </li>
       <li class="nav-item"(click)="isNavbarCollapsed = !isNavbarCollapsed">
+        <a class="nav-link" [routerLink]="['/pois/list']">See pois</a>
+      </li>
+      <li class="nav-item"(click)="isNavbarCollapsed = !isNavbarCollapsed">
+          <a class="nav-link" [routerLink]="['/trips/list']">See trips</a>
+      </li>
+      <li class="nav-item"(click)="isNavbarCollapsed = !isNavbarCollapsed">
         <a class="nav-link" [routerLink]="['/']">new trip</a>
       </li>
       <li class="nav-item" (click)="isNavbarCollapsed = !isNavbarCollapsed"  >
