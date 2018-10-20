@@ -24,7 +24,7 @@ export class User {
         //     data.append('tag', tag);
         //     }
 
-        data.append('rating', this.rating.toString());
+        // data.append('rating', this.rating.toString());
         data.append('role', this.role);
 
         return data;
