@@ -8,7 +8,7 @@
         <div class="form-group mb-2">
           <input type="text" class="form-control" id="destination" autocorrect="off" autocapitalize="off" spellcheck="off" #destinationSearch placeholder="destination">
         </div>
-        <button type="submit" class="btn btn-primary mb-2W btn-block" [routerLink]="['/route']" routerLinkActive="router-link-active">Go</button>
+        <button type="submit" class="btn btn-primary mb-2W btn-block" [routerLink]="['/route']" routerLinkActive="router-link-active" [disabled]="!tripForm.valid">Go</button>
       </form>
   </div>
 </div>

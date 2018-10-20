@@ -40,21 +40,28 @@
       </div>
                   
 
-      <div class="input-group mb-3" id="input-gallery">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fa fa-file-o"></i></span>
-        </div>
-        <div class="custom-file">
-          <input type="file" name="gallery" class="custom-file-input" #tripFiles multiple (change)="onChangeGalleryFile(tripFiles)">
-          <label class="custom-file-label">Choose files</label>
-        </div>
-        <div class="invalid-feedback" *ngIf="tripFiles.errors">
-          Please choose a file.
+      <div *ngIf="action!=='route'">
+        <div class="input-group mb-3" id="input-gallery">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-file-o"></i></span>
+          </div>
+          <div class="custom-file">
+            <input type="file" name="gallery" class="custom-file-input" #tripFiles multiple (change)="onChangeGalleryFile(tripFiles)">
+            <label class="custom-file-label">Choose files</label>
+          </div>
+          <div class="invalid-feedback" *ngIf="tripFiles.errors">
+            Please choose a file.
+          </div>
         </div>
       </div>
 
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="!tripForm.valid">Create</button>
+        <div *ngIf="action==='route'">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!tripForm.valid">Create</button>
+        </div>
+        <div *ngIf="action!=='route'">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!tripForm.valid">Edit</button>
+        </div>
       </div>
     </form>
   </div>

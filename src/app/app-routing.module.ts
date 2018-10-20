@@ -1,3 +1,5 @@
+import { TripListComponent } from './components/trips/trip-list/trip-list.component';
+import { PoiListTextComponent } from './components/pois/poi-list-text/poi-list-text.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { TripDetailComponent } from './components/trips/trip-detail/trip-detail.component';
 import { PoiDetailComponent } from './components/pois/poi-detail/poi-detail.component';
@@ -21,10 +23,14 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'pois',  canActivate: [IsAuthenticatedGuard], component: PoiCreateComponent },
+  { path: 'pois/list',  canActivate: [IsAuthenticatedGuard], component: PoiListTextComponent },
+
   { path: 'pois/:id', canActivate: [IsAuthenticatedGuard], component: PoiDetailComponent },
   { path: 'register', component: UserCreateComponent },
   { path: 'trips/:id', canActivate: [IsAuthenticatedGuard], component: TripDetailComponent },
-  { path: 'trips/:id/edit', canActivate: [IsAuthenticatedGuard], component: ListComponent }
+  { path: 'trips/:id/edit', canActivate: [IsAuthenticatedGuard], component: ListComponent },
+  { path: 'trips/list', canActivate: [IsAuthenticatedGuard], component: TripListComponent }
+
 
   
 ];

@@ -1,21 +1,23 @@
-<div class="banner-wrap">
-  <h2 class="card-title">{{trip.name}}</h2>
+<div class="container my-3">
+  <h2>{{trip.name}}</h2>
 </div>
+
 
 <div class="container my-3">
   <div class="card-body">
     <p class="card-text">{{trip.description}}</p>
-    <a href="#" class="card-link">See POIs</a>
-    
+    <!-- <button class="card-link">See POIs</button> -->
+    <div *ngIf="trip.user===user">
+      <a [routerLink]="['edit']" class="card-link">Edit Trip</a>
+    </div>
   </div>
 
-
-  <div *ngFor="let image of trip.gallery" >
-    <img [src]="image">
-  </div>
-
-  <div *ngFor="let pois of trip.pois" >
-      <p>{{ trip.pois }}</p>
-  </div>
+  <div class="row" >
+      <div class="col-6 mb-3" *ngFor="let image of trip.gallery">
+          <img [src]="image">
+      </div>    
+    </div>    
     
 </div>
+
+
