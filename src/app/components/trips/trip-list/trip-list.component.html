@@ -1,6 +1,12 @@
-<div *ngFor="let trip of trips">
-  <p>{{ trip.name }}</p>
-  <div *ngIf="trip.gallery.length > 1">
-    <img  [src]="trip.gallery[0]">
+<div class="my-3">
+    <div class="row smaller-row">
+        <div *ngFor="let trip of trips" class="gallery-list col-6">
+          <div class="gallery-inner"  *ngIf="trip.gallery.length > 0" [ngStyle]="{'background-image': 'url(' + trip.gallery[0] + ')'}">
+              <h5>
+                {{ trip.name }}
+              </h5>
+          </div>
+         
+        </div>
+      </div>
   </div>
-</div>
